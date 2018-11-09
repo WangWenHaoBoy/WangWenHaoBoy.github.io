@@ -6,7 +6,7 @@
   <link href="/WangWenHaoBoy.github.io/atom.xml" rel="self"/>
   
   <link href="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/"/>
-  <updated>2018-11-09T08:54:14.100Z</updated>
+  <updated>2018-11-09T09:08:25.914Z</updated>
   <id>https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java是怎样炼成的</title>
+    <link href="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/2018/11/09/dodo/"/>
+    <id>https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/2018/11/09/dodo/</id>
+    <published>2018-11-09T09:07:07.000Z</published>
+    <updated>2018-11-09T09:08:25.914Z</updated>
+    
+    <content type="html"><![CDATA[<p>我是娇娃</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我是娇娃&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="娇娃" scheme="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/categories/%E5%A8%87%E5%A8%83/"/>
+    
+    
+      <category term="java" scheme="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>javascriptindex</title>
