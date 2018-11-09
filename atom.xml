@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://javazhan.com/"/>
-  <updated>2018-11-09T16:01:26.562Z</updated>
+  <updated>2018-11-09T16:22:27.435Z</updated>
   <id>https://javazhan.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://javazhan.com/2018/11/09/woshishui/"/>
     <id>https://javazhan.com/2018/11/09/woshishui/</id>
     <published>2018-11-09T14:48:49.648Z</published>
-    <updated>2018-11-09T16:01:26.562Z</updated>
+    <updated>2018-11-09T16:22:27.435Z</updated>
     
     <content type="html"><![CDATA[<p>sssshidema</p><h1 id="星星点灯照亮我的前程不是吗"><a href="#星星点灯照亮我的前程不是吗" class="headerlink" title="星星点灯照亮我的前程不是吗"></a>星星点灯照亮我的前程不是吗</h1>]]></content>
     
@@ -94,19 +94,15 @@
     <link href="https://javazhan.com/2018/11/09/javascriptindex/"/>
     <id>https://javazhan.com/2018/11/09/javascriptindex/</id>
     <published>2018-11-09T08:40:42.000Z</published>
-    <updated>2018-11-09T08:54:14.100Z</updated>
+    <updated>2018-11-09T16:24:42.547Z</updated>
     
-    <content type="html"><![CDATA[<p>#我是javascript,jquery标题</p><ol><li>什么是Javascript</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="我是javascript-jquery标题"><a href="#我是javascript-jquery标题" class="headerlink" title="我是javascript,jquery标题"></a>我是javascript,jquery标题</h1><ol><li>什么是Javascript</li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;#我是javascript,jquery标题&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;什么是Javascript&lt;/li&gt;
-&lt;/ol&gt;
-
+        &lt;h1 id=&quot;我是javascript-jquery标题&quot;&gt;&lt;a href=&quot;#我是javascript-jquery标题&quot; class=&quot;headerlink&quot; title=&quot;我是javascript,jquery标题&quot;&gt;&lt;/a&gt;我是javascript,jquery标题&lt;/
       
     
     </summary>
