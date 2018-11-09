@@ -6,7 +6,7 @@
   <link href="/WangWenHaoBoy.github.io/atom.xml" rel="self"/>
   
   <link href="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/"/>
-  <updated>2018-11-09T02:37:17.337Z</updated>
+  <updated>2018-11-09T08:47:05.292Z</updated>
   <id>https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>javascriptindex</title>
+    <link href="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/2018/11/09/javascriptindex/"/>
+    <id>https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/2018/11/09/javascriptindex/</id>
+    <published>2018-11-09T08:40:42.000Z</published>
+    <updated>2018-11-09T08:47:05.292Z</updated>
+    
+    <content type="html"><![CDATA[<p>#我是javascript,jquery标题</p><ol><li>什么是Javascript</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#我是javascript,jquery标题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;什么是Javascript&lt;/li&gt;
+&lt;/ol&gt;
+
+      
+    
+    </summary>
+    
+      <category term="-javascript" scheme="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/categories/javascript/"/>
+    
+    
+      <category term="-javascript -jquery" scheme="https://github.com/WangWenHaoBoy/WangWenHaoBoy.github.io/tags/javascript-jquery/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
