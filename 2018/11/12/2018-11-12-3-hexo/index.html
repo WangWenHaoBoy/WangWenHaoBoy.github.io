@@ -21,8 +21,8 @@
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/26.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/27.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/28.png">
-<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/28.png">
-<meta property="og:updated_time" content="2018-11-12T11:40:56.251Z">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/29.png">
+<meta property="og:updated_time" content="2018-11-12T12:26:27.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建(三：在github上部署hexo主题)">
 <meta name="twitter:description" content="寻找主题 你可以到hexo官网主题页上去寻找自己想要的那种风格的hexo主题,每个主题作者都会有在github上的链接,一般链接会放在About页中,这里我以MiHo主题进行讲解。点击About:找到github链接,点击该链接:在跳转页面的overview中可以看到有hexo-theme-miho,点击hexo-theme-miho点解clone or download,让后将网址复制下来:打开">
@@ -151,7 +151,7 @@
       
             
             <h3 id="寻找主题"><a href="#寻找主题" class="headerlink" title="寻找主题"></a>寻找主题</h3><ol>
-<li>你可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网主题页</a>上去寻找自己想要的那种风格的hexo主题,每个主题作者都会有在github上的链接,一般链接会放在About页中,这里我以MiHo主题进行讲解。<br>点击About:<br><img src="https://javazhan.com/images/hexo/2018-11-12/24.png" alt=""><br>找到github链接,点击该链接:<br><img src="https://javazhan.com/images/hexo/2018-11-12/25.png" alt=""><br>在跳转页面的overview中可以看到有hexo-theme-miho,点击hexo-theme-miho<br><img src="https://javazhan.com/images/hexo/2018-11-12/26.png" alt=""><br>点解clone or download,让后将网址复制下来:<br><img src="https://javazhan.com/images/hexo/2018-11-12/27.png" alt=""><br>打开gitbash进入到hexo初始化的那个blog页面执行git clone 复制的网址 themes/小写主题名称,然后回车执行命令,执行命令完,你会在blog中themes文件中发现多了一个小写主题名称(我这里是miho)的文件夹,这样就把复制的主题保存到了themes中。<br><img src="https://javazhan.com/images/hexo/2018-11-12/28.png" alt=""><br>接下来就是调整themes中_config.yml中的一些配置<br>这些都做完了，接下来应该怎么办呢？<br>接下来就是将本地的静态博客部署到gitHub上，要把本地的静态博客同步到 Github，我们还需要先安装两个跟部署相关的 hexo 插件，可以实现如下命令：</li>
+<li>你可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网主题页</a>上去寻找自己想要的那种风格的hexo主题,每个主题作者都会有在github上的链接,一般链接会放在About页中,这里我以MiHo主题进行讲解。<br>点击About:<br><img src="https://javazhan.com/images/hexo/2018-11-12/24.png" alt=""><br>找到github链接,点击该链接:<br><img src="https://javazhan.com/images/hexo/2018-11-12/25.png" alt=""><br>在跳转页面的overview中可以看到有hexo-theme-miho,点击hexo-theme-miho<br><img src="https://javazhan.com/images/hexo/2018-11-12/26.png" alt=""><br>点解clone or download,让后将网址复制下来:<br><img src="https://javazhan.com/images/hexo/2018-11-12/27.png" alt=""><br>打开gitbash进入到hexo初始化的那个blog页面执行<code>git clone 复制的网址 themes/小写主题名称</code>,然后回车执行命令,执行命令完,你会在blog中themes文件中发现多了一个小写主题名称(我这里是miho)的文件夹,这样就把复制的主题保存到了themes中。<br><img src="https://javazhan.com/images/hexo/2018-11-12/28.png" alt=""><br>接下来就是调整themes中_config.yml中的一些配置<br>这些都做完了，接下来应该怎么办呢？<br>接下来就是将本地的静态博客部署到gitHub上，要把本地的静态博客同步到 Github，我们还需要先安装两个跟部署相关的 hexo 插件，可以实现如下命令：</li>
 </ol>
 <ul>
 <li>npm install hexo -server –save</li>
@@ -160,12 +160,12 @@
 <li>先清除掉已经生成的旧文件：hexo clean</li>
 <li>再生成一次静态文件：hexo generate</li>
 <li>在本地预览下：hexo server本地没问题之后，访问<a href="http://localhost:4000,如果成功了,Ctrl" target="_blank" rel="noopener">http://localhost:4000,如果成功了,Ctrl</a> + C 停掉本地预览</li>
-<li>使用部署命令部署到 Github 上：hexo deploy,如有弹出如下提示框，请输入：yes<br><img src="https://javazhan.com/images/hexo/2018-11-12/28.png" alt=""></li>
+<li>使用部署命令部署到 Github 上：hexo deploy,如有弹出如下提示框，请输入：yes<br><img src="https://javazhan.com/images/hexo/2018-11-12/29.png" alt=""></li>
 </ul>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年11月12日 19:40</p>
+        <p>最后更新： 2018年11月12日 20:26</p>
         <p>原始链接： <a class="post-url" href="/2018/11/12/2018-11-12-3-hexo/" title="Hexo博客搭建(三：在github上部署hexo主题)">https://javazhan.com/2018/11/12/2018-11-12-3-hexo/</a></p>
         <footer>
             <a href="https://javazhan.com">
@@ -290,19 +290,19 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/11/12/2018-11-12-2-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/12/2018-11-12-1-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          Hexo博客搭建(二：Windows下如何使用gitbash管理github)
+          Hexo博客搭建(一：hexo环境搭建)
         
       </span>
     </a>
   
   
-    <a href="/2017/06/18/ceshi/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">我是一个新标题1</span>
+    <a href="/2018/11/12/2018-11-12-2-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hexo博客搭建(二：Windows下如何使用gitbash管理github)</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
