@@ -32,11 +32,10 @@
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/17.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/18.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/19.png">
-<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/20.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/21.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/22.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/23.png">
-<meta property="og:updated_time" content="2018-11-12T10:56:29.570Z">
+<meta property="og:updated_time" content="2018-11-12T11:51:25.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客搭建(二：Windows下如何使用gitbash管理github)">
 <meta name="twitter:description" content="4.创建github Reponsitory 首先,创建一个reponsitory如下图:注意下图中的Owner其实就是账户名WangWenHaoBo,Repository name中一定要符合 账户名.github.io，否则无效,另外还要记住勾选Initialize this repository with a README5.配置一下gitbash和github的通信协议 首先打开刚刚安装好">
@@ -176,11 +175,11 @@
 <h3 id="将你刚刚在github上创建的project和本地联系起来。"><a href="#将你刚刚在github上创建的project和本地联系起来。" class="headerlink" title="将你刚刚在github上创建的project和本地联系起来。"></a>将你刚刚在github上创建的project和本地联系起来。</h3><ol>
 <li>大致说下大概先，就是先在本地找个空的文件夹，然后用gitbash初始化一下这个文件夹的信息，使他变成一个类似于可以被管理的仓库，然后再从远程仓库github上pull上面的东西下来这个文件夹，然后自己修改好了，再push回去远程github，就这么简单。<br>话不多说看图：<br><img src="https://javazhan.com/images/hexo/2018-11-12/14.png" alt=""><br>我在D盘新建了一个名字为git2的文件夹，空的，啥都没有。<br>然后用gitbash打开这个文件夹：<br>具体命令就是cd 路径<br><img src="https://javazhan.com/images/hexo/2018-11-12/15.png" alt=""><br>接下来就是git init:<br><img src="https://javazhan.com/images/hexo/2018-11-12/16.png" alt=""><br>好了，本地的仓库做好了，是时候把远程仓库的东西拉下来了：<br>命令：git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:你的git<br><img src="https://javazhan.com/images/hexo/2018-11-12/17.png" alt=""></li>
 </ol>
-<p><img src="https://javazhan.com/images/hexo/2018-11-12/18.png" alt=""><br>连接上之后，用pull:<br>命令：<br>git pull <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:你的git<br><img src="https://javazhan.com/images/hexo/2018-11-12/19.png" alt=""><br>我这里显示是Already up-to-date，因为我之前已经pull过一次了，你的可能不一样。然后你会发现<br>你的本地仓库文件多了一个.md文件<br><img src="https://javazhan.com/images/hexo/2018-11-12/20.png" alt=""><br>好了，这时候你要怎么把你想传的东西传到github上？<br>比如我新建一个test文档，里面的内容是11111.自己手动新建的，手动，就是直接新建的小伙子。<br><img src="https://javazhan.com/images/hexo/2018-11-12/21.png" alt=""><br>然后我们需要大概就是三个步骤就可以把这个test文件送到github上，<br>git add-&gt;git commit-&gt;git push<br>/////////////////////////////////////////////////////////<br>完整写法看图：<br>每一个$后面的就是我打的命令，当然git add后面跟一个.代表把所有文件都加进去，单独给出特定的文件名字就加特定的文件。<br><img src="https://javazhan.com/images/hexo/2018-11-12/22.png" alt=""><br>然后你就会发现你的github上就多个了文件了<br><img src="https://javazhan.com/images/hexo/2018-11-12/23.png" alt=""><br>后来你想修改的话，就一样的操作啊，pull下来<br>手动修改，add，commit，push。</p>
+<p><img src="https://javazhan.com/images/hexo/2018-11-12/18.png" alt=""><br>连接上之后，用pull:<br>命令：<br>git pull <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:你的git<br><img src="https://javazhan.com/images/hexo/2018-11-12/19.png" alt=""><br>我这里显示是Already up-to-date，因为我之前已经pull过一次了，你的可能不一样。然后你会发现<br>你的本地仓库文件多了一个.md文件<br><img src="https://javazhan.com/images/hexo/2018-11-12/21.png" alt=""><br>好了，这时候你要怎么把你想传的东西传到github上？<br>比如我新建一个test文档，里面的内容是11111.自己手动新建的，手动，就是直接新建的小伙子。<br>然后我们需要大概就是三个步骤就可以把这个test文件送到github上，<br>git add-&gt;git commit-&gt;git push<br>/////////////////////////////////////////////////////////<br>完整写法看图：<br>每一个$后面的就是我打的命令，当然git add后面跟一个.代表把所有文件都加进去，单独给出特定的文件名字就加特定的文件。<br><img src="https://javazhan.com/images/hexo/2018-11-12/22.png" alt=""><br>然后你就会发现你的github上就多个了文件了<br><img src="https://javazhan.com/images/hexo/2018-11-12/23.png" alt=""><br>后来你想修改的话，就一样的操作啊，pull下来<br>手动修改，add，commit，push。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年11月12日 18:56</p>
+        <p>最后更新： 2018年11月12日 19:51</p>
         <p>原始链接： <a class="post-url" href="/2018/11/12/2018-11-12-2-hexo/" title="Hexo博客搭建(二：Windows下如何使用gitbash管理github)">https://javazhan.com/2018/11/12/2018-11-12-2-hexo/</a></p>
         <footer>
             <a href="https://javazhan.com">
