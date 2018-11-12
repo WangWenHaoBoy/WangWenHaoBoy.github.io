@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://javazhan.com/"/>
-  <updated>2018-11-11T13:50:27.582Z</updated>
+  <updated>2018-11-09T16:22:28.000Z</updated>
   <id>https://javazhan.com/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>博客标题</title>
+    <link href="https://javazhan.com/2018/11/12/woshishui/"/>
+    <id>https://javazhan.com/2018/11/12/woshishui/</id>
+    <published>2018-11-12T02:39:54.402Z</published>
+    <updated>2018-11-09T16:22:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>sssshidema</p><h1 id="星星点灯照亮我的前程不是吗"><a href="#星星点灯照亮我的前程不是吗" class="headerlink" title="星星点灯照亮我的前程不是吗"></a>星星点灯照亮我的前程不是吗</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;sssshidema&lt;/p&gt;
+&lt;h1 id=&quot;星星点灯照亮我的前程不是吗&quot;&gt;&lt;a href=&quot;#星星点灯照亮我的前程不是吗&quot; class=&quot;headerlink&quot; title=&quot;星星点灯照亮我的前程不是吗&quot;&gt;&lt;/a&gt;星星点灯照亮我的前程不是吗&lt;/h1&gt;
+      
+    
+    </summary>
+    
+      <category term="Web技术" scheme="https://javazhan.com/categories/Web%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="bootstrap" scheme="https://javazhan.com/tags/bootstrap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我是标题</title>
+    <link href="https://javazhan.com/2018/11/12/aaaa/"/>
+    <id>https://javazhan.com/2018/11/12/aaaa/</id>
+    <published>2018-11-12T02:39:54.386Z</published>
+    <updated>2018-11-11T14:17:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="我是文章内容"><a href="#我是文章内容" class="headerlink" title="我是文章内容"></a>我是文章内容</h1>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;我是文章内容&quot;&gt;&lt;a href=&quot;#我是文章内容&quot; class=&quot;headerlink&quot; title=&quot;我是文章内容&quot;&gt;&lt;/a&gt;我是文章内容&lt;/h1&gt;
+      
+    
+    </summary>
+    
+      <category term="我是分类" scheme="https://javazhan.com/categories/%E6%88%91%E6%98%AF%E5%88%86%E7%B1%BB/"/>
+    
+    
+      <category term="我是标签" scheme="https://javazhan.com/tags/%E6%88%91%E6%98%AF%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>hexo记录</title>
-    <link href="https://javazhan.com/2018/11/11/hexoblog/"/>
-    <id>https://javazhan.com/2018/11/11/hexoblog/</id>
-    <published>2018-11-11T15:23:14.861Z</published>
-    <updated>2018-11-11T13:50:27.582Z</updated>
+    <link href="https://javazhan.com/2018/11/12/hexoblog/"/>
+    <id>https://javazhan.com/2018/11/12/hexoblog/</id>
+    <published>2018-11-12T02:39:54.386Z</published>
+    <updated>2018-11-11T13:50:28.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="我是hexo文章标题"><a href="#我是hexo文章标题" class="headerlink" title="我是hexo文章标题"></a>我是hexo文章标题</h1><p>我是hexo违章内容</p>]]></content>
     
@@ -45,53 +96,26 @@
   </entry>
   
   <entry>
-    <title>博客标题</title>
-    <link href="https://javazhan.com/2018/11/11/woshishui/"/>
-    <id>https://javazhan.com/2018/11/11/woshishui/</id>
-    <published>2018-11-11T15:16:13.830Z</published>
-    <updated>2018-11-09T16:22:27.435Z</updated>
+    <title>我是一个新标题</title>
+    <link href="https://javazhan.com/2017/06/18/eeee/"/>
+    <id>https://javazhan.com/2017/06/18/eeee/</id>
+    <published>2017-06-17T16:00:00.000Z</published>
+    <updated>2018-11-12T05:00:00.967Z</updated>
     
-    <content type="html"><![CDATA[<p>sssshidema</p><h1 id="星星点灯照亮我的前程不是吗"><a href="#星星点灯照亮我的前程不是吗" class="headerlink" title="星星点灯照亮我的前程不是吗"></a>星星点灯照亮我的前程不是吗</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;sssshidema&lt;/p&gt;
-&lt;h1 id=&quot;星星点灯照亮我的前程不是吗&quot;&gt;&lt;a href=&quot;#星星点灯照亮我的前程不是吗&quot; class=&quot;headerlink&quot; title=&quot;星星点灯照亮我的前程不是吗&quot;&gt;&lt;/a&gt;星星点灯照亮我的前程不是吗&lt;/h1&gt;
-      
-    
-    </summary>
-    
-      <category term="Web技术" scheme="https://javazhan.com/categories/Web%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="bootstrap" scheme="https://javazhan.com/tags/bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我是标题</title>
-    <link href="https://javazhan.com/2018/11/11/aaaa/"/>
-    <id>https://javazhan.com/2018/11/11/aaaa/</id>
-    <published>2018-11-11T15:13:26.792Z</published>
-    <updated>2018-11-11T14:17:52.838Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="我是文章内容"><a href="#我是文章内容" class="headerlink" title="我是文章内容"></a>我是文章内容</h1>]]></content>
+    <content type="html"><![CDATA[<p>我是一个新摘要<br><a id="more"></a></p><h1 id="我是一个新内容"><a href="#我是一个新内容" class="headerlink" title="我是一个新内容"></a>我是一个新内容</h1>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h1 id=&quot;我是文章内容&quot;&gt;&lt;a href=&quot;#我是文章内容&quot; class=&quot;headerlink&quot; title=&quot;我是文章内容&quot;&gt;&lt;/a&gt;我是文章内容&lt;/h1&gt;
-      
+      &lt;p&gt;我是一个新摘要&lt;br&gt;
     
     </summary>
     
-      <category term="我是分类" scheme="https://javazhan.com/categories/%E6%88%91%E6%98%AF%E5%88%86%E7%B1%BB/"/>
+      <category term="新分类" scheme="https://javazhan.com/categories/%E6%96%B0%E5%88%86%E7%B1%BB/"/>
     
     
-      <category term="我是标签" scheme="https://javazhan.com/tags/%E6%88%91%E6%98%AF%E6%A0%87%E7%AD%BE/"/>
+      <category term="新标签一" scheme="https://javazhan.com/tags/%E6%96%B0%E6%A0%87%E7%AD%BE%E4%B8%80/"/>
+    
+      <category term="新标签二" scheme="https://javazhan.com/tags/%E6%96%B0%E6%A0%87%E7%AD%BE%E4%BA%8C/"/>
     
   </entry>
   
