@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Hexo博客搭建(二：Windows下如何使用gitbash管理github) | Java博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="java博客,王文昊的博客">
+  
+  <meta name="description" content="4.创建github Reponsitory 首先,创建一个reponsitory如下图:注意下图中的Owner其实就是账户名WangWenHaoBo,Repository name中一定要符合 账户名.github.io，否则无效,另外还要记住勾选Initialize this repository with a README5.配置一下gitbash和github的通信协议 首先打开刚刚安装好">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客搭建(二：Windows下如何使用gitbash管理github)">
+<meta property="og:url" content="https://javazhan.com/2018/11/12/2018-11-12-2-hexo/index.html">
+<meta property="og:site_name" content="Java博客">
+<meta property="og:description" content="4.创建github Reponsitory 首先,创建一个reponsitory如下图:注意下图中的Owner其实就是账户名WangWenHaoBo,Repository name中一定要符合 账户名.github.io，否则无效,另外还要记住勾选Initialize this repository with a README5.配置一下gitbash和github的通信协议 首先打开刚刚安装好">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/4.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/5.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/6.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/7.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/8.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/9.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/10.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/11.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/12.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/13.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/14.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/15.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/16.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/17.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/18.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/19.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/20.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/21.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/22.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/23.png">
+<meta property="og:updated_time" content="2018-11-12T10:56:29.570Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo博客搭建(二：Windows下如何使用gitbash管理github)">
+<meta name="twitter:description" content="4.创建github Reponsitory 首先,创建一个reponsitory如下图:注意下图中的Owner其实就是账户名WangWenHaoBo,Repository name中一定要符合 账户名.github.io，否则无效,另外还要记住勾选Initialize this repository with a README5.配置一下gitbash和github的通信协议 首先打开刚刚安装好">
+<meta name="twitter:image" content="https://javazhan.com/images/hexo/2018-11-12/4.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Java博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Java博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/WangWenHaoBoy">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5557674141">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-12-2-hexo" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Hexo博客搭建(二：Windows下如何使用gitbash管理github)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/前端/">前端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-12
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="4-创建github-Reponsitory"><a href="#4-创建github-Reponsitory" class="headerlink" title="4.创建github Reponsitory"></a>4.创建github Reponsitory</h3><ol>
+<li>首先,创建一个reponsitory如下图:<br><img src="https://javazhan.com/images/hexo/2018-11-12/4.png" alt=""><br>注意下图中的Owner其实就是账户名WangWenHaoBo,Repository name中一定要符合 账户名.github.io，否则无效,另外还要记住勾选Initialize this repository with a README<br><img src="https://javazhan.com/images/hexo/2018-11-12/5.png" alt=""><h3 id="5-配置一下gitbash和github的通信协议"><a href="#5-配置一下gitbash和github的通信协议" class="headerlink" title="5.配置一下gitbash和github的通信协议"></a>5.配置一下gitbash和github的通信协议</h3></li>
+<li>首先打开刚刚安装好的gitbash,界面如下:<br><img src="https://javazhan.com/images/hexo/2018-11-12/6.png" alt=""></li>
+<li>配置gitbash和github的通信协议<br>先输入ssh-keygen –t rsa –C “邮箱地址” 然后一直按回车回车回车回车。。。。箭头指向的邮箱填写我当时填的是和github上写的邮箱一致。<br><img src="https://javazhan.com/images/hexo/2018-11-12/7.png" alt=""></li>
+<li>然后你就可以根据上图提示信息打开文件目录，找到那个文件<br><img src="https://javazhan.com/images/hexo/2018-11-12/8.png" alt=""></li>
+<li>用文本方式打开.pub文件。直接全选复制。用文本方式打开.pub文件。直接全选复制。用文本方式打开.pub文件。直接全选复制。重要的事情说三遍。<br>然后打开github自己的主页Settings-&gt;SSH-&gt;newSSHkey<br>不懂看下面的图：<br><img src="https://javazhan.com/images/hexo/2018-11-12/9.png" alt=""></li>
+</ol>
+<p><img src="https://javazhan.com/images/hexo/2018-11-12/10.png" alt=""></p>
+<p><img src="https://javazhan.com/images/hexo/2018-11-12/11.png" alt=""><br>刚刚全选复制的密钥就复制到Key哪里，title随便起。<br><img src="https://javazhan.com/images/hexo/2018-11-12/12.png" alt=""><br>接下来要验证设置！<br>输入命令：ssh –T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>，问你yes or no，就输入yes，回车完事<br><img src="https://javazhan.com/images/hexo/2018-11-12/13.png" alt=""><br>配置gitbash的用户名和邮箱：<br>git config –-global user.name “用户名”<br>git config –-global user.email “邮箱”<br>用户名邮箱，用你github上的用户名和邮箱。 </p>
+<h3 id="将你刚刚在github上创建的project和本地联系起来。"><a href="#将你刚刚在github上创建的project和本地联系起来。" class="headerlink" title="将你刚刚在github上创建的project和本地联系起来。"></a>将你刚刚在github上创建的project和本地联系起来。</h3><ol>
+<li>大致说下大概先，就是先在本地找个空的文件夹，然后用gitbash初始化一下这个文件夹的信息，使他变成一个类似于可以被管理的仓库，然后再从远程仓库github上pull上面的东西下来这个文件夹，然后自己修改好了，再push回去远程github，就这么简单。<br>话不多说看图：<br><img src="https://javazhan.com/images/hexo/2018-11-12/14.png" alt=""><br>我在D盘新建了一个名字为git2的文件夹，空的，啥都没有。<br>然后用gitbash打开这个文件夹：<br>具体命令就是cd 路径<br><img src="https://javazhan.com/images/hexo/2018-11-12/15.png" alt=""><br>接下来就是git init:<br><img src="https://javazhan.com/images/hexo/2018-11-12/16.png" alt=""><br>好了，本地的仓库做好了，是时候把远程仓库的东西拉下来了：<br>命令：git remote add origin <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:你的git<br><img src="https://javazhan.com/images/hexo/2018-11-12/17.png" alt=""></li>
+</ol>
+<p><img src="https://javazhan.com/images/hexo/2018-11-12/18.png" alt=""><br>连接上之后，用pull:<br>命令：<br>git pull <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:你的git<br><img src="https://javazhan.com/images/hexo/2018-11-12/19.png" alt=""><br>我这里显示是Already up-to-date，因为我之前已经pull过一次了，你的可能不一样。然后你会发现<br>你的本地仓库文件多了一个.md文件<br><img src="https://javazhan.com/images/hexo/2018-11-12/20.png" alt=""><br>好了，这时候你要怎么把你想传的东西传到github上？<br>比如我新建一个test文档，里面的内容是11111.自己手动新建的，手动，就是直接新建的小伙子。<br><img src="https://javazhan.com/images/hexo/2018-11-12/21.png" alt=""><br>然后我们需要大概就是三个步骤就可以把这个test文件送到github上，<br>git add-&gt;git commit-&gt;git push<br>/////////////////////////////////////////////////////////<br>完整写法看图：<br>每一个$后面的就是我打的命令，当然git add后面跟一个.代表把所有文件都加进去，单独给出特定的文件名字就加特定的文件。<br><img src="https://javazhan.com/images/hexo/2018-11-12/22.png" alt=""><br>然后你就会发现你的github上就多个了文件了<br><img src="https://javazhan.com/images/hexo/2018-11-12/23.png" alt=""><br>后来你想修改的话，就一样的操作啊，pull下来<br>手动修改，add，commit，push。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月12日 18:56</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/12/2018-11-12-2-hexo/" title="Hexo博客搭建(二：Windows下如何使用gitbash管理github)">https://javazhan.com/2018/11/12/2018-11-12-2-hexo/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/12/2018-11-12-2-hexo/&title=《Hexo博客搭建(二：Windows下如何使用gitbash管理github)》 — Java博客&pic=/images/thumbnail/1.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/12/2018-11-12-2-hexo/&title=《Hexo博客搭建(二：Windows下如何使用gitbash管理github)》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/12/2018-11-12-2-hexo/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo博客搭建(二：Windows下如何使用gitbash管理github)》 — Java博客&url=https://javazhan.com/2018/11/12/2018-11-12-2-hexo/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/12/2018-11-12-2-hexo/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS27DMAwFQN//0um2QBrnkbSBWhqviiaRNVoQ4uc44uf19uTf//2f89Xy9ZsPBgbGYxmv0yffVhX2/mkC/rgOBgbGBozq0uffnMT+5IAwMDAw8q0n1E+w3nsxMDAwqgG3d6E8v+RhYGBgTJLYXmA9f321MHdBLo6BgfFAxiSxvPvvW/obGBgYj2K8ik+16F9tMDR3hYGBsTTjqgZkr0iXjF8U9oOBgbE0o7eVPLDmm662EI75iWJgYPx7Rq90lV8EeyE4L/n9ccPFwMBYmlFoFrZgPXy0KwwMjG0Y1fGLamrau0pGaTAGBsY2jN5oVxKU8yGwPEluTotgYGA8kJEPOiQXtWrQzJHREWBgYGzAuGrooRqOq8f0pROLgYGxGaNaVsuLdMkby6EfAwNjacYodYyvekkJ74KZEQwMjOUYvVTzjiA7OSwMDIy1Gb2CVz741Rs46/0WAwNjB0ay0FWDX+fhu9ryxMDA2IExH8JINpRsMb9WRr/FwMBYiFFNIAttxTig5wfxcVcYGBgbMOYL9cLrnI2BgbEbozeoehSfyToff4WBgbEoozeimieZ1TJcNT2Ocm4MDIyHM3ohMh+hmDQbJsktBgbGeoy8DTDZerVRWh4jw8DA2IDRG8KoDkwkxzTKxTEwMDCSwFcMwUlpLwr0GBgYGMWrXrVkll8WvySxGBgYSzOS199RxJ8cAQYGxj6M3sVuXizLGwbz1BcDA+OxjB/MqbwqwQS5nQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Hexo/" class="color5">Hexo</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-创建github-Reponsitory"><span class="post-toc-text">4.创建github Reponsitory</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-配置一下gitbash和github的通信协议"><span class="post-toc-text">5.配置一下gitbash和github的通信协议</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将你刚刚在github上创建的project和本地联系起来。"><span class="post-toc-text">将你刚刚在github上创建的project和本地联系起来。</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/12/2018-11-12-1-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Hexo博客搭建(一：hexo环境搭建)
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/12/2018-11-12-3-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hexo博客搭建(三：在github上部署hexo主题)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 王文昊<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://javazhan.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/新分类1/">新分类1</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/新标签一1/" style="font-size: 10px;">新标签一1</a> <a href="/tags/新标签二1/" style="font-size: 10px;">新标签二1</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/新标签一1/" style="font-size: 10px;">新标签一1</a> <a href="/tags/新标签二1/" style="font-size: 10px;">新标签二1</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
