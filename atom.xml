@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://javazhan.com/"/>
-  <updated>2018-11-09T16:22:28.000Z</updated>
+  <updated>2018-11-12T05:30:53.318Z</updated>
   <id>https://javazhan.com/</id>
   
   <author>
@@ -17,81 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>博客标题</title>
-    <link href="https://javazhan.com/2018/11/12/woshishui/"/>
-    <id>https://javazhan.com/2018/11/12/woshishui/</id>
-    <published>2018-11-12T02:39:54.402Z</published>
-    <updated>2018-11-09T16:22:28.000Z</updated>
+    <title>我是一个新标题1</title>
+    <link href="https://javazhan.com/2017/06/18/bbbb/"/>
+    <id>https://javazhan.com/2017/06/18/bbbb/</id>
+    <published>2017-06-17T16:00:00.000Z</published>
+    <updated>2018-11-12T05:30:53.318Z</updated>
     
-    <content type="html"><![CDATA[<p>sssshidema</p><h1 id="星星点灯照亮我的前程不是吗"><a href="#星星点灯照亮我的前程不是吗" class="headerlink" title="星星点灯照亮我的前程不是吗"></a>星星点灯照亮我的前程不是吗</h1>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;sssshidema&lt;/p&gt;
-&lt;h1 id=&quot;星星点灯照亮我的前程不是吗&quot;&gt;&lt;a href=&quot;#星星点灯照亮我的前程不是吗&quot; class=&quot;headerlink&quot; title=&quot;星星点灯照亮我的前程不是吗&quot;&gt;&lt;/a&gt;星星点灯照亮我的前程不是吗&lt;/h1&gt;
-      
-    
-    </summary>
-    
-      <category term="Web技术" scheme="https://javazhan.com/categories/Web%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="bootstrap" scheme="https://javazhan.com/tags/bootstrap/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我是标题</title>
-    <link href="https://javazhan.com/2018/11/12/aaaa/"/>
-    <id>https://javazhan.com/2018/11/12/aaaa/</id>
-    <published>2018-11-12T02:39:54.386Z</published>
-    <updated>2018-11-11T14:17:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="我是文章内容"><a href="#我是文章内容" class="headerlink" title="我是文章内容"></a>我是文章内容</h1>]]></content>
+    <content type="html"><![CDATA[<p>我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要3费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要4费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分</p><h1 id="我是一个新内容"><a href="#我是一个新内容" class="headerlink" title="我是一个新内容"></a>我是一个新内容</h1>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;我是文章内容&quot;&gt;&lt;a href=&quot;#我是文章内容&quot; class=&quot;headerlink&quot; title=&quot;我是文章内容&quot;&gt;&lt;/a&gt;我是文章内容&lt;/h1&gt;
+        &lt;p&gt;我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我
       
     
     </summary>
     
-      <category term="我是分类" scheme="https://javazhan.com/categories/%E6%88%91%E6%98%AF%E5%88%86%E7%B1%BB/"/>
+      <category term="新分类1" scheme="https://javazhan.com/categories/%E6%96%B0%E5%88%86%E7%B1%BB1/"/>
     
     
-      <category term="我是标签" scheme="https://javazhan.com/tags/%E6%88%91%E6%98%AF%E6%A0%87%E7%AD%BE/"/>
+      <category term="新标签一1" scheme="https://javazhan.com/tags/%E6%96%B0%E6%A0%87%E7%AD%BE%E4%B8%801/"/>
     
-  </entry>
-  
-  <entry>
-    <title>hexo记录</title>
-    <link href="https://javazhan.com/2018/11/12/hexoblog/"/>
-    <id>https://javazhan.com/2018/11/12/hexoblog/</id>
-    <published>2018-11-12T02:39:54.386Z</published>
-    <updated>2018-11-11T13:50:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="我是hexo文章标题"><a href="#我是hexo文章标题" class="headerlink" title="我是hexo文章标题"></a>我是hexo文章标题</h1><p>我是hexo违章内容</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;我是hexo文章标题&quot;&gt;&lt;a href=&quot;#我是hexo文章标题&quot; class=&quot;headerlink&quot; title=&quot;我是hexo文章标题&quot;&gt;&lt;/a&gt;我是hexo文章标题&lt;/h1&gt;&lt;p&gt;我是hexo违章内容&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="Web技术" scheme="https://javazhan.com/categories/Web%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="生活琐事" scheme="https://javazhan.com/categories/Web%E6%8A%80%E6%9C%AF/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
-    
-    
-      <category term="jquery" scheme="https://javazhan.com/tags/jquery/"/>
+      <category term="新标签二1" scheme="https://javazhan.com/tags/%E6%96%B0%E6%A0%87%E7%AD%BE%E4%BA%8C1/"/>
     
   </entry>
   
