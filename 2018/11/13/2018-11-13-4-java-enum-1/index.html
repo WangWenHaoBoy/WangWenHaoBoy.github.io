@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>关于java的初始化( 三：数组的初始化 ) | Java博客</title>
+  <title>初探Java枚举类型 | Java博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="java博客,王文昊的博客">
   
-  <meta name="description" content="我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面">
+  <meta name="description" content="创建一个enum123public enum Season&amp;#123;	SPRING,SUMMER,AUTUMN,WINTER&amp;#125; 这里创建了一个名为季节Season的枚举类型，它具有四个具名值，春天SPRING,夏天SUMMER,秋天AUTUMN,冬天WINTER，由于枚举类型的实例是常量，因此按照命名惯例他们都用大写字母表示(如果在一个名字中有多个单词，用下划线将他们隔开)。为了使用e">
 <meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于java的初始化( 三：数组的初始化 )">
+<meta property="og:title" content="初探Java枚举类型">
 <meta property="og:url" content="https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/index.html">
 <meta property="og:site_name" content="Java博客">
-<meta property="og:description" content="我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面">
+<meta property="og:description" content="创建一个enum123public enum Season&amp;#123;	SPRING,SUMMER,AUTUMN,WINTER&amp;#125; 这里创建了一个名为季节Season的枚举类型，它具有四个具名值，春天SPRING,夏天SUMMER,秋天AUTUMN,冬天WINTER，由于枚举类型的实例是常量，因此按照命名惯例他们都用大写字母表示(如果在一个名字中有多个单词，用下划线将他们隔开)。为了使用e">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-13T09:32:02.000Z">
+<meta property="og:updated_time" content="2018-11-13T13:39:44.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于java的初始化( 三：数组的初始化 )">
-<meta name="twitter:description" content="我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面">
+<meta name="twitter:title" content="初探Java枚举类型">
+<meta name="twitter:description" content="创建一个enum123public enum Season&amp;#123;	SPRING,SUMMER,AUTUMN,WINTER&amp;#125; 这里创建了一个名为季节Season的枚举类型，它具有四个具名值，春天SPRING,夏天SUMMER,秋天AUTUMN,冬天WINTER，由于枚举类型的实例是常量，因此按照命名惯例他们都用大写字母表示(如果在一个名字中有多个单词，用下划线将他们隔开)。为了使用e">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -114,7 +114,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      关于java的初始化( 三：数组的初始化 )
+      初探Java枚举类型
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -143,11 +143,22 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            
+            <h3 id="创建一个enum"><a href="#创建一个enum" class="headerlink" title="创建一个enum"></a>创建一个enum</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public enum Season&#123;</span><br><span class="line">	SPRING,SUMMER,AUTUMN,WINTER</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里创建了一个名为季节Season的枚举类型，它具有四个具名值，春天SPRING,夏天SUMMER,秋天AUTUMN,冬天WINTER，由于枚举类型的实例是常量，因此按照命名惯例他们都用大写字母表示(如果在一个名字中有多个单词，用下划线将他们隔开)。<br>为了使用enum，需要创建一个该类型的引用，并将其复制给某个实例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Season season = Season.AUTUMN;</span><br><span class="line">		System.out.println(season);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为:<br>AUTUMN<br>在你创建enum时，编译器会自动添加一些有用的特性。例如，他会创建一个toString()方法，以便于很方便的显示某个enum的名字，这正上上面打印语句如何产生其输出的答案。编译器还会创建一个ordinal()的方法，用来表示某个特定enum常量的声明顺序，以及static values()方法，用来按照enum常量的声明顺序，产生由这些常量构成的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		for(Season season:Season.values()) &#123;</span><br><span class="line">			System.out.println(season+&quot;.ordinal--&gt;&quot;+season.ordinal());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为:<br>SPRING.ordinal–&gt;0<br>SUMMER.ordinal–&gt;1<br>AUTUMN.ordinal–&gt;2<br>WINTER.ordinal–&gt;3<br>尽管enum看起来像是一种新的数据类型，但是这个关键字只是为enum生成对应的类时，产生某些编译上的行为，因此在很大程度上，你可以将enum当作其他任何类来处理。事实上enum确实是类，并且具有自己的方法。<br>enum有一个特别实用的特性，即它可以在switch语句内使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Season season = Season.SPRING;</span><br><span class="line">		switch (season) &#123;</span><br><span class="line">		case SPRING:</span><br><span class="line">			System.out.println(&quot;SPRING&quot;);</span><br><span class="line">			break;</span><br><span class="line">		case SUMMER:</span><br><span class="line">			System.out.println(&quot;SUMMER&quot;);</span><br><span class="line">				break;</span><br><span class="line">		case AUTUMN:</span><br><span class="line">			System.out.println(&quot;AUTUMN&quot;);</span><br><span class="line">			break;</span><br><span class="line">		case WINTER:</span><br><span class="line">			System.out.println(&quot;WINTER&quot;);</span><br><span class="line">			break;</span><br><span class="line">	</span><br><span class="line">		default:</span><br><span class="line">			System.out.println(&quot;DEFAULT&quot;);</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为:<br>SPRING<br>由于switch时要在有限的几何中进行选择，因此它与enum正是绝佳的组合。</p>
+<p>总结：</p>
+<ul>
+<li>enum看起来像是一种新的数据类型，但是这个关键字只是为enum生成对应的类时，产生某些编译上的行为，因此在很大程度上，你可以将enum当作其他任何类来处理,事实上enum确实是类，并且具有自己的方法。</li>
+<li>创建enum时，编译器会自动添加一些有用的特性，例如增加toString()和static values()以及ordinal()方法等…</li>
+<li>enum有一个特别实用的特性，即它可以在switch语句内使用。</li>
+</ul>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年11月13日 17:32</p>
-        <p>原始链接： <a class="post-url" href="/2018/11/13/2018-11-13-4-java-enum-1/" title="关于java的初始化( 三：数组的初始化 )">https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/</a></p>
+        <p>最后更新： 2018年11月13日 21:39</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/13/2018-11-13-4-java-enum-1/" title="初探Java枚举类型">https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/</a></p>
         <footer>
             <a href="https://javazhan.com">
                 <img src="/images/logo.jpg" alt="王文昊">
@@ -204,7 +215,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&title=《关于java的初始化( 三：数组的初始化 )》 — Java博客&pic=/images/thumbnail/5.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&title=《初探Java枚举类型》 — Java博客&pic=/images/thumbnail/6.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -214,7 +225,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&title=《关于java的初始化( 三：数组的初始化 )》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&title=《初探Java枚举类型》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -224,7 +235,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于java的初始化( 三：数组的初始化 )》 — Java博客&url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&via=https://javazhan.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《初探Java枚举类型》 — Java博客&url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&via=https://javazhan.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -262,6 +273,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建一个enum"><span class="post-toc-text">创建一个enum</span></a></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
@@ -354,10 +371,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a><a class="category-link" href="/categories/新分类1/">新分类1</a>
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/新标签一1/" style="font-size: 10px;">新标签一1</a> <a href="/tags/新标签二1/" style="font-size: 10px;">新标签二1</a>
+            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -390,7 +407,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/新标签一1/" style="font-size: 10px;">新标签一1</a> <a href="/tags/新标签二1/" style="font-size: 10px;">新标签二1</a>
+            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a>
         </div>
     </div>
 </div>

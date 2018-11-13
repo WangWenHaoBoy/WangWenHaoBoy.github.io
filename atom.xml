@@ -93,13 +93,20 @@
   </entry>
   
   <entry>
-    <title>关于java的初始化( 三：数组的初始化 )</title>
+    <title>初探Java枚举类型</title>
     <link href="https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/"/>
     <id>https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/</id>
     <published>2018-11-12T16:00:00.000Z</published>
-    <updated>2018-11-13T09:32:02.000Z</updated>
+    <updated>2018-11-13T13:39:44.543Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="创建一个enum"><a href="#创建一个enum" class="headerlink" title="创建一个enum"></a>创建一个enum</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public enum Season&#123;</span><br><span class="line">SPRING,SUMMER,AUTUMN,WINTER</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里创建了一个名为季节Season的枚举类型，它具有四个具名值，春天SPRING,夏天SUMMER,秋天AUTUMN,冬天WINTER，由于枚举类型的实例是常量，因此按照命名惯例他们都用大写字母表示(如果在一个名字中有多个单词，用下划线将他们隔开)。<br>为了使用enum，需要创建一个该类型的引用，并将其复制给某个实例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Season season = Season.AUTUMN;</span><br><span class="line">System.out.println(season);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>输出结果为:<br>AUTUMN<br>在你创建enum时，编译器会自动添加一些有用的特性。例如，他会创建一个toString()方法，以便于很方便的显示某个enum的名字，这正上上面打印语句如何产生其输出的答案。编译器还会创建一个ordinal()的方法，用来表示某个特定enum常量的声明顺序，以及static values()方法，用来按照enum常量的声明顺序，产生由这些常量构成的数组。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">for(Season season:Season.values()) &#123;</span><br><span class="line">System.out.println(season+&quot;.ordinal--&gt;&quot;+season.ordinal());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>输出结果为:<br>SPRING.ordinal–&gt;0<br>SUMMER.ordinal–&gt;1<br>AUTUMN.ordinal–&gt;2<br>WINTER.ordinal–&gt;3<br>尽管enum看起来像是一种新的数据类型，但是这个关键字只是为enum生成对应的类时，产生某些编译上的行为，因此在很大程度上，你可以将enum当作其他任何类来处理。事实上enum确实是类，并且具有自己的方法。<br>enum有一个特别实用的特性，即它可以在switch语句内使用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Season season = Season.SPRING;</span><br><span class="line">switch (season) &#123;</span><br><span class="line">case SPRING:</span><br><span class="line">System.out.println(&quot;SPRING&quot;);</span><br><span class="line">break;</span><br><span class="line">case SUMMER:</span><br><span class="line">System.out.println(&quot;SUMMER&quot;);</span><br><span class="line">break;</span><br><span class="line">case AUTUMN:</span><br><span class="line">System.out.println(&quot;AUTUMN&quot;);</span><br><span class="line">break;</span><br><span class="line">case WINTER:</span><br><span class="line">System.out.println(&quot;WINTER&quot;);</span><br><span class="line">break;</span><br><span class="line"></span><br><span class="line">default:</span><br><span class="line">System.out.println(&quot;DEFAULT&quot;);</span><br><span class="line">break;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>输出结果为:<br>SPRING<br>由于switch时要在有限的几何中进行选择，因此它与enum正是绝佳的组合。</p><p>总结：</p><ul><li>enum看起来像是一种新的数据类型，但是这个关键字只是为enum生成对应的类时，产生某些编译上的行为，因此在很大程度上，你可以将enum当作其他任何类来处理,事实上enum确实是类，并且具有自己的方法。</li><li>创建enum时，编译器会自动添加一些有用的特性，例如增加toString()和static values()以及ordinal()方法等…</li><li>enum有一个特别实用的特性，即它可以在switch语句内使用。</li></ul>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;创建一个enum&quot;&gt;&lt;a href=&quot;#创建一个enum&quot; class=&quot;headerlink&quot; title=&quot;创建一个enum&quot;&gt;&lt;/a&gt;创建一个enum&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td cl
+      
     
     </summary>
     
@@ -124,32 +131,6 @@
       
       
         &lt;h3 id=&quot;1-安装Git-Bash&quot;&gt;&lt;a href=&quot;#1-安装Git-Bash&quot; class=&quot;headerlink&quot; title=&quot;1.安装Git Bash&quot;&gt;&lt;/a&gt;1.安装Git Bash&lt;/h3&gt;&lt;p&gt;我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="https://javazhan.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="Hexo" scheme="https://javazhan.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo博客搭建(三：在github上部署hexo主题)</title>
-    <link href="https://javazhan.com/2018/11/12/2018-11-12-3-hexo/"/>
-    <id>https://javazhan.com/2018/11/12/2018-11-12-3-hexo/</id>
-    <published>2018-11-11T16:00:00.000Z</published>
-    <updated>2018-11-12T12:26:27.830Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="寻找主题"><a href="#寻找主题" class="headerlink" title="寻找主题"></a>寻找主题</h3><ol><li>你可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网主题页</a>上去寻找自己想要的那种风格的hexo主题,每个主题作者都会有在github上的链接,一般链接会放在About页中,这里我以MiHo主题进行讲解。<br>点击About:<br><img src="https://javazhan.com/images/hexo/2018-11-12/24.png" alt=""><br>找到github链接,点击该链接:<br><img src="https://javazhan.com/images/hexo/2018-11-12/25.png" alt=""><br>在跳转页面的overview中可以看到有hexo-theme-miho,点击hexo-theme-miho<br><img src="https://javazhan.com/images/hexo/2018-11-12/26.png" alt=""><br>点解clone or download,让后将网址复制下来:<br><img src="https://javazhan.com/images/hexo/2018-11-12/27.png" alt=""><br>打开gitbash进入到hexo初始化的那个blog页面执行<code>git clone 复制的网址 themes/小写主题名称</code>,然后回车执行命令,执行命令完,你会在blog中themes文件中发现多了一个小写主题名称(我这里是miho)的文件夹,这样就把复制的主题保存到了themes中。<br><img src="https://javazhan.com/images/hexo/2018-11-12/28.png" alt=""><br>接下来就是调整themes中_config.yml中的一些配置<br>这些都做完了，接下来应该怎么办呢？<br>接下来就是将本地的静态博客部署到gitHub上，要把本地的静态博客同步到 Github，我们还需要先安装两个跟部署相关的 hexo 插件，可以实现如下命令：</li></ol><ul><li>npm install hexo -server –save</li><li>npm install hexo-deployer-git –save<br>编辑全局 hexo 的配置文件：_config.yml，这块可以参照网上的。</li><li>编辑全局配置后我们需要重新部署：</li><li>先清除掉已经生成的旧文件：hexo clean</li><li>再生成一次静态文件：hexo generate</li><li>在本地预览下：hexo server本地没问题之后，访问<a href="http://localhost:4000,如果成功了,Ctrl" target="_blank" rel="noopener">http://localhost:4000,如果成功了,Ctrl</a> + C 停掉本地预览</li><li>使用部署命令部署到 Github 上：hexo deploy,如有弹出如下提示框，请输入：yes<br><img src="https://javazhan.com/images/hexo/2018-11-12/29.png" alt=""></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;寻找主题&quot;&gt;&lt;a href=&quot;#寻找主题&quot; class=&quot;headerlink&quot; title=&quot;寻找主题&quot;&gt;&lt;/a&gt;寻找主题&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;你可以到&lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; re
       
     
     </summary>
@@ -187,29 +168,28 @@
   </entry>
   
   <entry>
-    <title>我是一个新标题1</title>
-    <link href="https://javazhan.com/2017/06/18/ceshi/"/>
-    <id>https://javazhan.com/2017/06/18/ceshi/</id>
-    <published>2017-06-17T16:00:00.000Z</published>
-    <updated>2018-11-12T05:30:54.000Z</updated>
+    <title>Hexo博客搭建(三：在github上部署hexo主题)</title>
+    <link href="https://javazhan.com/2018/11/12/2018-11-12-3-hexo/"/>
+    <id>https://javazhan.com/2018/11/12/2018-11-12-3-hexo/</id>
+    <published>2018-11-11T16:00:00.000Z</published>
+    <updated>2018-11-12T12:26:27.830Z</updated>
     
-    <content type="html"><![CDATA[<p>我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要3费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要4费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分</p><h1 id="我是一个新内容"><a href="#我是一个新内容" class="headerlink" title="我是一个新内容"></a>我是一个新内容</h1>]]></content>
+    <content type="html"><![CDATA[<h3 id="寻找主题"><a href="#寻找主题" class="headerlink" title="寻找主题"></a>寻找主题</h3><ol><li>你可以到<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网主题页</a>上去寻找自己想要的那种风格的hexo主题,每个主题作者都会有在github上的链接,一般链接会放在About页中,这里我以MiHo主题进行讲解。<br>点击About:<br><img src="https://javazhan.com/images/hexo/2018-11-12/24.png" alt=""><br>找到github链接,点击该链接:<br><img src="https://javazhan.com/images/hexo/2018-11-12/25.png" alt=""><br>在跳转页面的overview中可以看到有hexo-theme-miho,点击hexo-theme-miho<br><img src="https://javazhan.com/images/hexo/2018-11-12/26.png" alt=""><br>点解clone or download,让后将网址复制下来:<br><img src="https://javazhan.com/images/hexo/2018-11-12/27.png" alt=""><br>打开gitbash进入到hexo初始化的那个blog页面执行<code>git clone 复制的网址 themes/小写主题名称</code>,然后回车执行命令,执行命令完,你会在blog中themes文件中发现多了一个小写主题名称(我这里是miho)的文件夹,这样就把复制的主题保存到了themes中。<br><img src="https://javazhan.com/images/hexo/2018-11-12/28.png" alt=""><br>接下来就是调整themes中_config.yml中的一些配置<br>这些都做完了，接下来应该怎么办呢？<br>接下来就是将本地的静态博客部署到gitHub上，要把本地的静态博客同步到 Github，我们还需要先安装两个跟部署相关的 hexo 插件，可以实现如下命令：</li></ol><ul><li>npm install hexo -server –save</li><li>npm install hexo-deployer-git –save<br>编辑全局 hexo 的配置文件：_config.yml，这块可以参照网上的。</li><li>编辑全局配置后我们需要重新部署：</li><li>先清除掉已经生成的旧文件：hexo clean</li><li>再生成一次静态文件：hexo generate</li><li>在本地预览下：hexo server本地没问题之后，访问<a href="http://localhost:4000,如果成功了,Ctrl" target="_blank" rel="noopener">http://localhost:4000,如果成功了,Ctrl</a> + C 停掉本地预览</li><li>使用部署命令部署到 Github 上：hexo deploy,如有弹出如下提示框，请输入：yes<br><img src="https://javazhan.com/images/hexo/2018-11-12/29.png" alt=""></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我
+        &lt;h3 id=&quot;寻找主题&quot;&gt;&lt;a href=&quot;#寻找主题&quot; class=&quot;headerlink&quot; title=&quot;寻找主题&quot;&gt;&lt;/a&gt;寻找主题&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;你可以到&lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; re
       
     
     </summary>
     
-      <category term="新分类1" scheme="https://javazhan.com/categories/%E6%96%B0%E5%88%86%E7%B1%BB1/"/>
+      <category term="前端" scheme="https://javazhan.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="新标签一1" scheme="https://javazhan.com/tags/%E6%96%B0%E6%A0%87%E7%AD%BE%E4%B8%801/"/>
-    
-      <category term="新标签二1" scheme="https://javazhan.com/tags/%E6%96%B0%E6%A0%87%E7%AD%BE%E4%BA%8C1/"/>
+      <category term="Hexo" scheme="https://javazhan.com/tags/Hexo/"/>
     
   </entry>
   
