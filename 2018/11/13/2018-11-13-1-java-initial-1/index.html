@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>关于java的初始化( 一：成员变量的初始化 ) | Java博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="java博客,王文昊的博客">
+  
+  <meta name="description" content="关于成员变量的初始化Java会尽力保证:所有变量在使用前都能得到恰当的初始化。如果是成员变量是基本类型，类的每个基本类型的成员变量保证都会有一个初始值，如果成员变量是一个非基本类型，那么它将被初始化成一个特殊值null。下面的程序可以验证这种情况，Dog是一个注意他们的输出:1234567891011121314151617181920212223public class InitialVars(">
+<meta name="keywords" content="java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于java的初始化( 一：成员变量的初始化 )">
+<meta property="og:url" content="https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/index.html">
+<meta property="og:site_name" content="Java博客">
+<meta property="og:description" content="关于成员变量的初始化Java会尽力保证:所有变量在使用前都能得到恰当的初始化。如果是成员变量是基本类型，类的每个基本类型的成员变量保证都会有一个初始值，如果成员变量是一个非基本类型，那么它将被初始化成一个特殊值null。下面的程序可以验证这种情况，Dog是一个注意他们的输出:1234567891011121314151617181920212223public class InitialVars(">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-13T03:43:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于java的初始化( 一：成员变量的初始化 )">
+<meta name="twitter:description" content="关于成员变量的初始化Java会尽力保证:所有变量在使用前都能得到恰当的初始化。如果是成员变量是基本类型，类的每个基本类型的成员变量保证都会有一个初始值，如果成员变量是一个非基本类型，那么它将被初始化成一个特殊值null。下面的程序可以验证这种情况，Dog是一个注意他们的输出:1234567891011121314151617181920212223public class InitialVars(">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Java博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Java博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/WangWenHaoBoy">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5557674141">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-13-1-java-initial-1" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      关于java的初始化( 一：成员变量的初始化 )
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/后端/">后端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-13
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="关于成员变量的初始化"><a href="#关于成员变量的初始化" class="headerlink" title="关于成员变量的初始化"></a>关于成员变量的初始化</h3><p>Java会尽力保证:所有变量在使用前都能得到恰当的初始化。<br>如果是成员变量是基本类型，类的每个基本类型的成员变量保证都会有一个初始值，如果成员变量是一个非基本类型，那么它将被初始化成一个特殊值null。下面的程序可以验证这种情况，Dog是一个注意他们的输出:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class InitialVars()&#123;</span><br><span class="line">	private boolean t;</span><br><span class="line">	private char c;</span><br><span class="line">	private byte b;</span><br><span class="line">	private short s;</span><br><span class="line">	private int i;</span><br><span class="line">	private long l;</span><br><span class="line">	private float f;</span><br><span class="line">	private double d;</span><br><span class="line">	private String st;</span><br><span class="line">	public void printVars()&#123;</span><br><span class="line">    	System.out.println(&quot;输出结果为:&quot;);</span><br><span class="line">    	System.out.println(&quot;boolean--&gt;&quot;+t);</span><br><span class="line">    	System.out.println(&quot;char--&gt;&quot;+c);</span><br><span class="line">    	System.out.println(&quot;byte--&gt;&quot;+b);</span><br><span class="line">    	System.out.println(&quot;short--&gt;&quot;+s);</span><br><span class="line">    	System.out.println(&quot;int--&gt;&quot;+i);</span><br><span class="line">    	System.out.println(&quot;long--&gt;&quot;+l);</span><br><span class="line">    	System.out.println(&quot;float--&gt;&quot;+f);</span><br><span class="line">    	System.out.println(&quot;double--&gt;&quot;+d);</span><br><span class="line">    	System.out.println(&quot;String--&gt;&quot;+st);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为:<br>boolean–&gt;false;<br>char–&gt;<br>byte–&gt;0<br>short–&gt;0<br>int–&gt;0<br>long–&gt;0<br>float–&gt;0.0<br>double–&gt;0.0<br>String–&gt;null<br>可见尽管是基本类型的数据成员的初始值没有给出，但他们确实有值(char值为0,所以为空白)，你可以直接使用这些基本类型的成员变量，而非基本类型的成员变量初始值为null,你必须重新new它才可以使用，这样至少不会冒”未初始化变量”的风险了。</p>
+<p>指定初始化<br>如果你想为某个变量赋初始值，该怎么做呢？有一种很直接的办法，就是在定义类变量的地方直接为其赋值。以下代码片段修改了InitialVars类成员变量的定义，直接提供了初值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class InitialVarsOne()&#123;</span><br><span class="line">	private boolean t = true;</span><br><span class="line">	private char c = &apos;x&apos;;</span><br><span class="line">	private byte b = 47;</span><br><span class="line">	private short s = 0xff;</span><br><span class="line">	private int i = 999;</span><br><span class="line">	private long l = 1;</span><br><span class="line">	private float f = 3.14f;</span><br><span class="line">	private double d = 3.1415936;</span><br><span class="line">	private String st = new String();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你还可以通过调用方法来初始化成员变量,举个简单例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class InitialVarsTwo()&#123;</span><br><span class="line">    private int i = initialInt();</span><br><span class="line">    public int initialInt()&#123;</span><br><span class="line">    	return 3;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>同时调用的方法中还可以是参数，但是这些参数必须是初始化后的，举个例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class InitialVarsThree()&#123;</span><br><span class="line">    private int j = 3;</span><br><span class="line">	private int i = initialInt(j);</span><br><span class="line">    public int initialInt(int vlaue)&#123;</span><br><span class="line">    	return value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面这样是可以的，但是像下面这样就不可以了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class InitialVarsFour()&#123;</span><br><span class="line">    private int i = initialInt(j);</span><br><span class="line">    private int j = 3;</span><br><span class="line">    public int initialInt(int vlaue)&#123;</span><br><span class="line">    	return value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此时初始化i的时候j还没有被初始化，所以编译会报错。<br>显然，上述程序的正确性取决于初始化的顺序，而与其编译方式无关。所以编译器恰当的对”向前引用”发出了警告。</p>
+<p>对于方法中的局部变量,Java以编译时错误的形式来贯彻这种保证。所以如果写成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void f()&#123;</span><br><span class="line">    int i;</span><br><span class="line">    i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因为你只是声明了i，并没有对i进行初始化，所以在编译时会报错。</p>
+<p>总结：</p>
+<ul>
+<li>对于是基本类型的成员变量如果你只是声明了，没有进行初始化，那么 JVM会自动帮你进行初始化一个值，你可以直接操作这些基本类型的成员变量。</li>
+<li>对于非基本类型的成员变量，如果没有声明那么JVM会初始化为一个特殊值null,你不能直接使用它，必须要new后才能使用它。</li>
+<li>成员变量的初始化顺序就是他们在类中的顺序。</li>
+<li>对于初始化成员变量你可以直接在定义变量的地方进行赋值，也可以通过方法对他们进行赋值。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月13日 11:43</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/13/2018-11-13-1-java-initial-1/" title="关于java的初始化( 一：成员变量的初始化 )">https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/&title=《关于java的初始化( 一：成员变量的初始化 )》 — Java博客&pic=/images/thumbnail/3.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/&title=《关于java的初始化( 一：成员变量的初始化 )》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于java的初始化( 一：成员变量的初始化 )》 — Java博客&url=https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/13/2018-11-13-1-java-initial-1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aQXKEMAwFUe5/abKdqglMfwkWlturVEKBnxeKZOk48Dq/1ufv75//fvL+bVfvfGDJkCFjWcZ5u+4/zN9P2AR8uQcZMmRswEg/Tz5cC6MpW4YMGTJqQZCnhjJkyJDxNoMXpVchm4dyGTJkyCABNOXxazh+EA/U4jJkyFiQ0Sks3/75lf6GDBkylmKc4eqkkv0QfLkrGTJkjGbwAPdU4Zq+je9HhgwZUxm8ZL2/LOuXpvwCDqWGMmTI2IxBAmUKTlPAH9+SIUPGaAYPjumgGGFzfKuFKUOGjMUZPJmrBdzOuEYQvmXIkLEB49kgm16f1QJ3sRaXIUPGsow0IUuTOZ4a1v4qQ4aMHRhpu7GfSnaOL7g1lCFDxghGrZGZNgb40aRJZ6sfK0OGjAUZtTt2HhDJFX9x2EKGDBmjGTzkkSf5RtPgi2ZGZMiQsQGDj4il+M5GD7JkyJAxmtEJmnw8ojaW0UoTZciQMZRRawmQNieBpTuJ/6vIkCFjcUaqTM8mHWnlzYZ/WpgyZMgYzeArLVDTVC9ly5AhY08Gbzqm6WDteZRQypAhYyijFmp5oKyVsnwETYYMGTswOrfrncGv/vNpmJYhQ8bqDF6y8vQubVjyohedtAwZMoYyeODrHERaMAeXdzJkyJDx0FBX7RmU1cqQIUMGGA5LC91asvijiJUhQ8ZoBk/s+Mf6wfqV6zYZMmQsyKjdZdXSvvQ6rzYOIkOGjEGMPyR/YL4EpDe1AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java基础/" class="color2">java基础</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于成员变量的初始化"><span class="post-toc-text">关于成员变量的初始化</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/13/2018-11-13-2-java-initial-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">关于java的初始化( 二：构造器的初始化 )</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 王文昊<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://javazhan.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a><a class="category-link" href="/categories/新分类1/">新分类1</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/新标签一1/" style="font-size: 10px;">新标签一1</a> <a href="/tags/新标签二1/" style="font-size: 10px;">新标签二1</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a> <a href="/tags/新标签一1/" style="font-size: 10px;">新标签一1</a> <a href="/tags/新标签二1/" style="font-size: 10px;">新标签二1</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

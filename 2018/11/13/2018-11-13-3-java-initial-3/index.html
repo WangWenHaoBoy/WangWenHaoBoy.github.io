@@ -3,23 +3,23 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>我是一个新标题1 | Java博客</title>
+  <title>关于java的初始化( 三：数组的初始化 ) | Java博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="java博客,王文昊的博客">
   
-  <meta name="description" content="我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要3费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更">
-<meta name="keywords" content="新标签一1,新标签二1">
+  <meta name="description" content="数组只是相同类型的，用一个标识符名称封装到一起的一个对象序列或基本类型数据序列。 一位数组的初始化一维数组的声明：int[] arr;方括号也可以置于标识符后面：int arr[];两种格式的含义都一样的，没有什么区别，通常C,C++程序猿习惯用第二种写法，不过前一种更合理，java程序猿的话推荐使用第一种写法。一位数组的初始化,如果是int基本类型,并且知道其值和长度时：int[] arr =">
+<meta name="keywords" content="java基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我是一个新标题1">
-<meta property="og:url" content="https://javazhan.com/2017/06/18/ceshi/index.html">
+<meta property="og:title" content="关于java的初始化( 三：数组的初始化 )">
+<meta property="og:url" content="https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/index.html">
 <meta property="og:site_name" content="Java博客">
-<meta property="og:description" content="我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要3费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更">
+<meta property="og:description" content="数组只是相同类型的，用一个标识符名称封装到一起的一个对象序列或基本类型数据序列。 一位数组的初始化一维数组的声明：int[] arr;方括号也可以置于标识符后面：int arr[];两种格式的含义都一样的，没有什么区别，通常C,C++程序猿习惯用第二种写法，不过前一种更合理，java程序猿的话推荐使用第一种写法。一位数组的初始化,如果是int基本类型,并且知道其值和长度时：int[] arr =">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-12T05:30:54.000Z">
+<meta property="og:updated_time" content="2018-11-13T09:21:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我是一个新标题1">
-<meta name="twitter:description" content="我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要3费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更">
+<meta name="twitter:title" content="关于java的初始化( 三：数组的初始化 )">
+<meta name="twitter:description" content="数组只是相同类型的，用一个标识符名称封装到一起的一个对象序列或基本类型数据序列。 一位数组的初始化一维数组的声明：int[] arr;方括号也可以置于标识符后面：int arr[];两种格式的含义都一样的，没有什么区别，通常C,C++程序猿习惯用第二种写法，不过前一种更合理，java程序猿的话推荐使用第一种写法。一位数组的初始化,如果是int基本类型,并且知道其值和长度时：int[] arr =">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -107,14 +107,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-ceshi" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-2018-11-13-3-java-initial-3" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      我是一个新标题1
+      关于java的初始化( 三：数组的初始化 )
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -122,12 +122,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/新分类1/">新分类1</a>
+                      <a href="/categories/后端/">后端</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-06-18
+          <i class="fa fa-calendar"></i>  2018-11-13
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -143,12 +143,21 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>我是一个新摘要1费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要2费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要3费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分我是一个新摘要4费附加按时交付撒富兰克林奇偶为江湖梦阔怕老大哥跑得快日投票记得吗这一个衣服撒即可吗发发看顾客考法拉克麻辣面风格更好二等分</p>
-<h1 id="我是一个新内容"><a href="#我是一个新内容" class="headerlink" title="我是一个新内容"></a>我是一个新内容</h1>
+            <p>数组只是相同类型的，用一个标识符名称封装到一起的一个对象序列或基本类型数据序列。</p>
+<h3 id="一位数组的初始化"><a href="#一位数组的初始化" class="headerlink" title="一位数组的初始化"></a>一位数组的初始化</h3><p>一维数组的声明：<br>int[] arr;<br>方括号也可以置于标识符后面：<br>int arr[];<br>两种格式的含义都一样的，没有什么区别，通常C,C++程序猿习惯用第二种写法，不过前一种更合理，java程序猿的话推荐使用第一种写法。<br>一位数组的初始化,如果是int基本类型,并且知道其值和长度时：<br>int[] arr = {1,3,5,7,9}shu<br>int[] arr = new int[]{1,3,5,7,9}<br>上面这个两个数组初始化方法是等价的，没有什么区别<br>如果不知道数组的值和长度时，可以采用以下初始化方法：<br>int[] arr = new int[20]<br>上面的20表示数组初始化的一个大概长度;<br>如果用java.util.Arrays中的toString(arr)方法对数组进行输出，输出结果为：<br>[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]</p>
+<h3 id="二维数组的初始化"><a href="#二维数组的初始化" class="headerlink" title="二维数组的初始化"></a>二维数组的初始化</h3><p>二维数组的声明：<br>int[][] arr;<br>方括号也可以置于标识符后面：<br>int arr[][];<br>二维数组的初始化，以int基本类型举例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//二维数组的初始化第一步</span><br><span class="line">	    Integer[][] values = new Integer[3][];//只定义了二维数组的一维长度为3,二维长度可以不定义</span><br><span class="line">	    //也可以是Integer[][] values = new Integer[2][4] 这样就定义了数组在二维上的长度为4</span><br><span class="line">	    for(int i=0;i&lt;values.length;i++) &#123;</span><br><span class="line">	    	values[i] = new Integer[4];//定义了二维长度为4</span><br><span class="line">	    	for(int j=0;j&lt;values[i].length;j++) &#123;</span><br><span class="line">	    		values[i][j] = new Integer(i+j);</span><br><span class="line">	    		</span><br><span class="line">	    	&#125;</span><br><span class="line">	    &#125;</span><br><span class="line">	    </span><br><span class="line">	    for(int i=0;i&lt;values.length;i++) &#123;</span><br><span class="line">	    	for(int j=0;j&lt;values[i].length;j++) &#123;</span><br><span class="line">	    		System.out.print(values[i][j]+&quot;\t&quot;);</span><br><span class="line">	    	&#125;</span><br><span class="line">	    	System.out.println();</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="可变参数列表"><a href="#可变参数列表" class="headerlink" title="可变参数列表"></a>可变参数列表</h3><p>在可变参数列表中可以放入与该可变的参数类型相同的数组，举例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void printObject(Integer...values) &#123;//可变参数</span><br><span class="line">		for(Integer value:values) &#123;</span><br><span class="line">			System.out.println(value.intValue());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Integer[] values = &#123;1,3,5,7,9&#125;;</span><br><span class="line">		printObject(values);//可将数组传入到可变参数中</span><br><span class="line"> 	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但需注意的是，传入的数组必须是一个一维数组，如果传入的是二维数组，那么在编译过程中会报错。<br>总结：</p>
+<ul>
+<li>一维数组初始化有三种形式<br>int[] arr = {1,3,5,7,9};<br>int[] arr = new int[]{1,3,5,7,9};<br>int[] arr = new int[20];</li>
+<li>二维数组初始化有两种方式<br>int[][] arr = new int[3][4];<br>int[][] arr = new int[3][];//二维长度在赋值一维时定义长度，例如 arr[0] = new int[4]此时定义二维长度为4</li>
+<li>可变参数中可以传入装入的类型与可变参数类型相同的数组，单数组必须是一维数组</li>
+</ul>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年11月12日 13:30</p>
-        <p>原始链接： <a class="post-url" href="/2017/06/18/ceshi/" title="我是一个新标题1">https://javazhan.com/2017/06/18/ceshi/</a></p>
+        <p>最后更新： 2018年11月13日 17:21</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/13/2018-11-13-3-java-initial-3/" title="关于java的初始化( 三：数组的初始化 )">https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/</a></p>
         <footer>
             <a href="https://javazhan.com">
                 <img src="/images/logo.jpg" alt="王文昊">
@@ -205,7 +214,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2017/06/18/ceshi/&title=《我是一个新标题1》 — Java博客&pic=/images/thumbnail/1.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/&title=《关于java的初始化( 三：数组的初始化 )》 — Java博客&pic=/images/thumbnail/5.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -215,22 +224,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2017/06/18/ceshi/&title=《我是一个新标题1》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/&title=《关于java的初始化( 三：数组的初始化 )》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2017/06/18/ceshi/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《我是一个新标题1》 — Java博客&url=https://javazhan.com/2017/06/18/ceshi/&via=https://javazhan.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于java的初始化( 三：数组的初始化 )》 — Java博客&url=https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/&via=https://javazhan.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2017/06/18/ceshi/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/13/2018-11-13-3-java-initial-3/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -240,7 +249,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aQW7DMAwEwPz/0+4D0ri7lOwY6OhkCLE8yoGQSL5e8Tjexvv8yszmgYuLu8w9Tsf5b1Y2k6z/y5ZwcXFv5H6KGJ+e39/6NJPMJwZcXNwnc/PNtG/h4uL+B247g4uL+zRucr1Jji/tUenCuxouLu4CN89SXvd8SX4XFxd3xD3KMTvEJMmR6Ou4uLi3cPOAMlw6WK3+JS4u7sXc5DNJySQpk+TtF3+EMFxc3Adw2wTK3uBVBzJcXNyt3DZ52ga+lXCJi4v7HG6eQm0PQ3lALAIZLi7uVu55uJl9cqWqE6VKcXFxv8qdpU3by8+2QIaLi7vMbRMZ5wGuLbIml6WiUQMXF3cTN99BniiZHY8iOi4u7i3cNiS1R5b6mBKES1xc3Du5bVNF25AxS7P+0YSBi4t7MTf5wKzpKim7Fivg4uLezs2fZy0as/LtK/8vcXFxl7lHOZKkxvo6RfUVFxf3Au6sJWJWsckPUsMiKy4u7lZuHnTyC0/bclEkWHFxcW/k1iWN4FJU38NmCVNcXNwHcPNyyK7mraVAhouL+yXueiG2EOLi4t7IXW/KzFOo+bu4uLjf4tahJE5w5MFumCLBxcXdz/0BguO5aMVqVVEAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS27DMAwFwNz/0um2QGvlkXQWlkaroHUUTQqw4uf1itf7z/r98/Xzf59c73a15w0LAwPjsYz3cq0/ON8/YSfgyzNgYGAcwKhuvX5yEkarbAwMDIzJ6/y3GBgYGN9gVJPSqzCdhG8MDAyMPImt8vIyXP5F3JCLY2BgPJAxSSy//for/Q0MDIxHMd7FtS639Y613i06FQYGxtaMPMDdlbhWd8vPg4GBcQJj8pHz1DQvwFVkGBgYOzDm2+Xvqn4dhSYoBgbGAYxqQ7GKrCbA1YEMDAyMvRl563HSgOyNa1TDNwYGxq6MXjqal/vz8Ytq4G5Oi2BgYDyWUb2oTVLfwv+B/DKKgYFxAKP3Mb10d5KyRlVDDAyM7Rj5QXsjFL2m6frqefleDAyMAxjJ0e9tCfSaE6/EjYGBsR1jwstLb81SWhGMgYGxH6MXTHsBtHfQQkjFwMA4jHFDW7EY9SfDZxgYGHszqhe7PCzm5blqRP3wN8HAwNiaUS3oT0LtvOX5DwYDA+MARi9czvF5QI+GLTAwMA5gVJuOedlu8nw5icXAwNiI8S6uPNTmB+2NzH4YXcXAwNiIka8Ekzc1589XwzQGBsbTGXmQ7c05VENn78qIgYFxAiMPfHmZbF367131LpEYGBgYxZtm3lTIGw8fQjAGBgZGHF57l8L8sljoxGJgYGzHmCeiyThFdZ+vlNswMDAeyOjVspJLYa89WQ3oGBgYWzN+AAPi+ggJiUT0AAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -252,9 +261,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/新标签一1/" class="color1">新标签一1</a>
-      
-    <a href="/tags/新标签二1/" class="color1">新标签二1</a>
+    <a href="/tags/java基础/" class="color2">java基础</a>
       
   </li>
 
@@ -267,23 +274,28 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我是一个新内容"><span class="post-toc-text">我是一个新内容</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一位数组的初始化"><span class="post-toc-text">一位数组的初始化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二维数组的初始化"><span class="post-toc-text">二维数组的初始化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可变参数列表"><span class="post-toc-text">可变参数列表</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/11/12/2018-11-12-2-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/13/2018-11-13-2-java-initial-2/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          Hexo博客搭建(二：Windows下如何使用gitbash管理github)
+          关于java的初始化( 二：构造器的初始化 )
         
       </span>
     </a>
   
+  
+    <a href="/2018/11/13/2018-11-13-4-java-enum-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">关于java的初始化( 三：数组的初始化 )</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 

@@ -3,20 +3,22 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2017 | Java博客</title>
+  <title>关于java的初始化( 三：数组的初始化 ) | Java博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="java博客,王文昊的博客">
   
   <meta name="description" content="我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Java博客">
-<meta property="og:url" content="https://javazhan.com/archives/2017/index.html">
+<meta name="keywords" content="java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于java的初始化( 三：数组的初始化 )">
+<meta property="og:url" content="https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/index.html">
 <meta property="og:site_name" content="Java博客">
 <meta property="og:description" content="我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-13T09:32:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java博客">
+<meta name="twitter:title" content="关于java的初始化( 三：数组的初始化 )">
 <meta name="twitter:description" content="我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面">
   
   
@@ -105,55 +107,200 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-2018-11-13-4-java-enum-1" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/06/18/ceshi/" class="archive-article-date">
-  <time datetime="2017-06-17T16:00:00.000Z" itemprop="datePublished">06-18</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/18/ceshi/">我是一个新标题1</a>
+    <h1 class="post-title" itemprop="name">
+      关于java的初始化( 三：数组的初始化 )
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/后端/">后端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-13
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月13日 17:32</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/13/2018-11-13-4-java-enum-1/" title="关于java的初始化( 三：数组的初始化 )">https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&title=《关于java的初始化( 三：数组的初始化 )》 — Java博客&pic=/images/thumbnail/5.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&title=《关于java的初始化( 三：数组的初始化 )》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于java的初始化( 三：数组的初始化 )》 — Java博客&url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/13/2018-11-13-4-java-enum-1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3aS27DMAwFwNz/0uk2QGD7kXQKWBqtCqdQPFkQ/L1e8Xl/nM8n559+n6NPj+65+WBgYDyW8T49vf85v//oHc5/oIt7MDAwNmDkV+cBtxdGz7/38DkGBgZGHATPw/H858PAwMDIGdHVwfMklGNgYGBUw2W10E3adv9ai2NgYDyQMSksf/33T+YbGBgYj2L0ytF8SJm81nt8MDAw1mbkAS5pn1UHlkm6mb8PBgbG2ozzNlZvGDkvg5OGXZTJYmBgPJyRr3AlaWKe/FWTwosfFAMDY2nGvNHWa+vng8zqWBQDA2NtRq9l1mvoV4NvoUjGwMDYgJG83L0JXJJoFhJBDAyM5RjzLDIfA1Q7Y4XiGQMDYzPGZN0hf9KLmRddQwwMjKUZ1aK03JQvBujyt2NgYCzN6NWAvXZ/njg2d0YwMDAWZSTl5XwK2hthFsAYGBhLM6q7CtVhZ54ITgaiGBgYazPyYWS1xK0WoqNlWQwMjKUZSQLXGw8kyd98jQwDA2MfRrURNn/eu/+inMbAwNiMMU8WJ6lecicGBsbOjPyKSbMsGYKWB64YGBiLMnqLqklpmr9oL9xjYGDsw5iPNnPwfLRQWLbAwMBYjlFt91fDaDV09lJGDAyMHRjzwFdNKHup3uH9GBgYGK1xY7IWVl0du9gWwcDAwKguQLQGD0lr7+aAi4GB8RBGUsQmhWVeAOeJ5s3tNgwMjAcyqr2sSTNusnA2KX0xMDAey/gDN4FBz9rtI2kAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/新标签一1/" class="color1">新标签一1</a>
-      
-    <a href="/tags/新标签二1/" class="color1">新标签二1</a>
+    <a href="/tags/java基础/" class="color2">java基础</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
-  
-    </div></section>
-  
 
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/13/2018-11-13-3-java-initial-3/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          关于java的初始化( 三：数组的初始化 )
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/12/2018-11-12-1-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hexo博客搭建(一：hexo环境搭建)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
 </section>
         
       </div>
