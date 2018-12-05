@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>java设计模式之观察者模式 | Java博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="java博客,王文昊的博客">
+  
+  <meta name="description" content="当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知它的依赖对象。观察者模式属于行为型模式。  概念 意图  定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。  主要解决  一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。  何时使用  一个对">
+<meta name="keywords" content="java设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java设计模式之观察者模式">
+<meta property="og:url" content="https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/index.html">
+<meta property="og:site_name" content="Java博客">
+<meta property="og:description" content="当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知它的依赖对象。观察者模式属于行为型模式。  概念 意图  定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。  主要解决  一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。  何时使用  一个对">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://javazhan.com/images/disign-pattern/2018-11-19/2.png">
+<meta property="og:updated_time" content="2018-11-19T09:20:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java设计模式之观察者模式">
+<meta name="twitter:description" content="当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知它的依赖对象。观察者模式属于行为型模式。  概念 意图  定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。  主要解决  一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。  何时使用  一个对">
+<meta name="twitter:image" content="https://javazhan.com/images/disign-pattern/2018-11-19/2.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Java博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Java博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/WangWenHaoBoy">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5557674141">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-19-2-java-design-pattern-2" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java设计模式之观察者模式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/后端/">后端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <blockquote>
+<p>当对象间存在一对多关系时，则使用<font color="red">观察者模式（Observer Pattern）</font>。比如，当一个对象被修改时，则会自动通知它的依赖对象。观察者模式属于<font color="red">行为型模式</font>。</p>
+</blockquote>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
+<p>意图</p>
+</blockquote>
+<p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+<blockquote>
+<p>主要解决</p>
+</blockquote>
+<p>一个对象状态改变给其他对象通知的问题，而且要考虑到易用和低耦合，保证高度的协作。</p>
+<blockquote>
+<p>何时使用</p>
+</blockquote>
+<p>一个对象（目标对象）的状态发生改变，所有的依赖对象（观察者对象）都将得到通知，进行广播通知。</p>
+<blockquote>
+<p>使用场景</p>
+</blockquote>
+<ul>
+<li>一个抽象模型有两个方面，其中一个方面依赖于另一个方面。将这些方面封装在独立的对象中使它们可以各自独立地改变和复用。</li>
+<li>一个对象的改变将导致其他一个或多个对象也发生改变，而不知道具体有多少对象将发生改变，可以降低对象之间的耦合度。</li>
+<li>一个对象必须通知其他对象，而并不知道这些对象是谁。</li>
+<li>需要在系统中创建一个触发链，A对象的行为将影响B对象，B对象的行为将影响C对象……，可以使用观察者模式创建一种链式触发机制。<blockquote>
+<p>UML结构图</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://javazhan.com/images/disign-pattern/2018-11-19/2.png" alt=""></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>前台类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Reception &#123;</span><br><span class="line">	private int state;</span><br><span class="line">	private List&lt;DepartMent&gt; departMentList=new ArrayList&lt;DepartMent&gt;();</span><br><span class="line">	public int getState() &#123;</span><br><span class="line">		return state;</span><br><span class="line">	&#125;</span><br><span class="line">	public void setState(int state) &#123;</span><br><span class="line">		this.state = state;</span><br><span class="line">		if(this.state==0) &#123;</span><br><span class="line">			notifyAllStaff(&quot;老板来了&quot;);</span><br><span class="line">		&#125;else &#123;</span><br><span class="line">			notifyAllStaff(&quot;老板走了&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	public void attach(DepartMent staff) &#123;</span><br><span class="line">		departMentList.add(staff);</span><br><span class="line">	&#125;</span><br><span class="line">	public void notifyAllStaff(String stateStr) &#123;</span><br><span class="line">		for(DepartMent departMent : departMentList) &#123;</span><br><span class="line">			departMent.update(stateStr);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>部门抽象类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public abstract class DepartMent &#123;</span><br><span class="line">protected Reception reception;</span><br><span class="line">public DepartMent(Reception reception) &#123;</span><br><span class="line">	this.reception = reception;</span><br><span class="line">&#125;</span><br><span class="line">public abstract void update(String stateStr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>部门A：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class DepartMentA extends DepartMent &#123;</span><br><span class="line">	public DepartMentA(Reception reception) &#123;</span><br><span class="line">		super(reception);</span><br><span class="line">		this.reception.attach(this);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void update(String stateStr) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(this.getClass().getSimpleName()+&quot;接收到&quot;+reception.getClass().getSimpleName()+&quot;通知,&quot;+stateStr+&quot;,改变工作状态&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>部门B：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class DepartMentB extends DepartMent &#123;</span><br><span class="line">	public DepartMentB(Reception reception) &#123;</span><br><span class="line">		super(reception);</span><br><span class="line">		this.reception.attach(this);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void update(String stateStr) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(this.getClass().getSimpleName()+&quot;接收到&quot;+reception.getClass().getSimpleName()+&quot;通知,&quot;+stateStr+&quot;,改变工作状态&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>部门C：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class DepartMentC extends DepartMent &#123;</span><br><span class="line">	public DepartMentC(Reception reception) &#123;</span><br><span class="line">		super(reception);</span><br><span class="line">		this.reception.attach(this);</span><br><span class="line">		// TODO Auto-generated constructor stub</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public void update(String stateStr) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(this.getClass().getSimpleName()+&quot;接收到&quot;+reception.getClass().getSimpleName()+&quot;通知,&quot;+stateStr+&quot;,改变工作状态&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Reception reception = new Reception();</span><br><span class="line">		new DepartMentA(reception);</span><br><span class="line">		new DepartMentB(reception);</span><br><span class="line">		new DepartMentC(reception);</span><br><span class="line">		reception.setState(0);</span><br><span class="line">		reception.setState(1);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为：<br>DepartMentA接收到Reception通知,老板来了,改变工作状态<br>DepartMentB接收到Reception通知,老板来了,改变工作状态<br>DepartMentC接收到Reception通知,老板来了,改变工作状态<br>DepartMentA接收到Reception通知,老板走了,改变工作状态<br>DepartMentB接收到Reception通知,老板走了,改变工作状态<br>DepartMentC接收到Reception通知,老板走了,改变工作状态</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>优点</p>
+</blockquote>
+<ul>
+<li>观察者和被观察者是抽象耦合的。 2、建立一套触发机制。</li>
+</ul>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ul>
+<li>如果一个被观察者对象有很多的直接和间接的观察者的话，将所有的被观察者都通知到会花费很多时间。</li>
+<li>如果在观察者和观察目标之间有循环依赖的话，观察目标会触发它们之间进行循环调用，可能导致系统崩溃。</li>
+<li>观察者模式没有相应的机制让观察者知道所观察的目标对象是怎么发生变化的，而仅仅只是知道观察目标发生了变化。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月19日 17:20</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/19/2018-11-19-2-java-design-pattern-2/" title="java设计模式之观察者模式">https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/&title=《java设计模式之观察者模式》 — Java博客&pic=/images/thumbnail/8.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/&title=《java设计模式之观察者模式》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java设计模式之观察者模式》 — Java博客&url=https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/19/2018-11-19-2-java-design-pattern-2/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3aMW4DMQwEwPz/0w6QKo3tXVJyUoyq4GDnNCokecmvr3g8fsbr549fI/lW+z+fff7AwMPDwxtN/dl4PdF2aV5PPRn5nPHw8PBu89pp7b+bf2v2Xjw8PLz/wHu2+RbbdDm5zbLi4eHh/QfeZnNPFuXsgYSHh4d3m9f++M+3+9cBbhtPXMxa8PDw8Lpb7iqK/fzfF+t7eHh4eIuqertN529J2ggOzA0PDw/vAi9pgdo0BLT4PMwtDgw8PDy8o7z2p/7rF5wNCzZRyNNzDw8PD+8obxPIbpoMEl5ykBSXaTw8PLw1L2972rcObIpbdbCLh4eHd4GXtEPNrrxno9tZSIGHh4d3g7ffppPr7zBdXhTSovoeHh4e3prXbtn5Rt9exNuQ9+lzPDw8vAu8Nhg9FROc/T9vFhoPDw/vKG9T1M8Plfba3bYv1E1XeHh4eEd5s8apPHTIj59Z00CUteDh4eGteclFtp3ipu0gOaKK3wp4eHh4R3ltW8DsSft8thB4eHh4n+FtCl2zELYtpK0iEjw8PLwLvFmU0L5+VsTaNG/h4eHh3ea1r2xLXG3JrQ1267YtPDw8vEO8vGw/iwY2JbQ8TXnTRoCHh4d3lJeXlzaNUPmFePbJKKvGw8PDW/M2Zaq8/J9v9PnSRMcYHh4e3gXevkCVHxh5VtAeVEXKgoeHh7fm5Rv95pA426pVRBJ4eHh4l3ltK1U7lUcw2nrdqvSFh4eHNyp65WNWoMqPhDZ0eHMFx8PDw7vAy0dySMyOmbyBoF0OPDw8vHu89oKbRAN1ZBAvXB2L4OHh4V3j7Q+DzSV4cyGOOiPw8PDw/pR36lBpF3HYsIWHh4f3p7zZRbn95CzkxcPDw/s8b9Yg1UYJ7YV71uyFh4eHd5s328RnzQTJAbMvtuHh4eFd430DBmMr8JkL6QYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java设计模式/" class="color4">java设计模式</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概念"><span class="post-toc-text">概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现"><span class="post-toc-text">实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/19/2018-11-19-3-java-design-pattern-3/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java设计模式之建造者模式
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/17/2018-11-17-1-java-design-pattern-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java设计模式之访问者模式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 王文昊<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://javazhan.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

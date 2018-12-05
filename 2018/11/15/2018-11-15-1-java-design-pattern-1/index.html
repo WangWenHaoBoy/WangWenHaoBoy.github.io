@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>java设计模式之策略模式 | Java博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="java博客,王文昊的博客">
+  
+  <meta name="description" content="在阎宏博士的《JAVA与模式》一书中开头是这样描述策略（Strategy）模式的：策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。 策略模式的结构策略模式是对算法的包装，是把使用算法的责任和算法本身分割开来，委派给不同的对象管理。策略模式通常把一个系列的算法包装到一系列的策">
+<meta name="keywords" content="java设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java设计模式之策略模式">
+<meta property="og:url" content="https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/index.html">
+<meta property="og:site_name" content="Java博客">
+<meta property="og:description" content="在阎宏博士的《JAVA与模式》一书中开头是这样描述策略（Strategy）模式的：策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。 策略模式的结构策略模式是对算法的包装，是把使用算法的责任和算法本身分割开来，委派给不同的对象管理。策略模式通常把一个系列的算法包装到一系列的策">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://javazhan.com/images/disign-pattern/2018-11-15/1.png">
+<meta property="og:image" content="https://javazhan.com/images/disign-pattern/2018-11-15/2.png">
+<meta property="og:image" content="https://javazhan.com/images/disign-pattern/2018-11-15/3.png">
+<meta property="og:updated_time" content="2018-11-15T02:08:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java设计模式之策略模式">
+<meta name="twitter:description" content="在阎宏博士的《JAVA与模式》一书中开头是这样描述策略（Strategy）模式的：策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。 策略模式的结构策略模式是对算法的包装，是把使用算法的责任和算法本身分割开来，委派给不同的对象管理。策略模式通常把一个系列的算法包装到一系列的策">
+<meta name="twitter:image" content="https://javazhan.com/images/disign-pattern/2018-11-15/1.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Java博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Java博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/WangWenHaoBoy">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5557674141">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-15-1-java-design-pattern-1" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java设计模式之策略模式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/后端/">后端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-15
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>在阎宏博士的《JAVA与模式》一书中开头是这样描述策略（Strategy）模式的：<br>策略模式属于对象的行为模式。其用意是针对一组算法，将每一个算法封装到具有共同接口的独立的类中，从而使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发生变化。</p>
+<h3 id="策略模式的结构"><a href="#策略模式的结构" class="headerlink" title="策略模式的结构"></a>策略模式的结构</h3><p>策略模式是对算法的包装，是把使用算法的责任和算法本身分割开来，委派给不同的对象管理。策略模式通常把一个系列的算法包装到一系列的策略类里面，作为一个抽象策略类的子类。用一句话来说，就是：“准备一组算法，并将每一个算法封装起来，使得它们可以互换”。下面就以一个示意性的实现讲解策略模式实例的结构。</p>
+<div align="center"><br><img src="https://javazhan.com/images/disign-pattern/2018-11-15/1.png" alt=""><br></div><br>这个模式涉及到三个角色：<br><strong>环境(Context)角色</strong>：持有一个Strategy的引用。<br><strong>抽象策略(Strategy)角色</strong>：这是一个抽象角色，通常由一个接口或抽象类实现。此角色给出所有的具体策略类所需的接口。<br><strong>具体策略(ConcreteStrategy)角色</strong>：包装了相关的算法或行为。<br><br>代码分析<br>环境(Context)角色:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Context &#123;</span><br><span class="line">	private Strategy strategy;</span><br><span class="line">	public Context(Strategy strategy) &#123;</span><br><span class="line">		this.strategy = strategy;</span><br><span class="line">	&#125;</span><br><span class="line">	public void contextInterface() &#123;</span><br><span class="line">		strategy.strategyInterface();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br>抽象策略(Strategy)角色:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Strategy &#123;</span><br><span class="line">	void strategyInterface();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br>具体策略(ConcreteStrategy)角色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class ConcreteStrategyA implements Strategy</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void strategyInterface() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;do something A&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class ConcreteStrategyB implements Strategy</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void strategyInterface() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;do something B&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class ConcreteStrategyC implements Strategy</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void strategyInterface() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;do something C&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><br>使用场景<br>假设现在要设计一个贩卖各类书籍的电子商务网站的购物车系统。一个最简单的情况就是把所有货品的单价乘上数量，但是实际情况肯定比这要复杂。比如，本网站可能对所有的高级会员提供每本20%的促销折扣；对中级会员提供每本10%的促销折扣；对初级会员没有折扣。<br>根据描述，折扣是根据以下的几个算法中的一个进行的：<br>算法一：对初级会员没有折扣。<br>算法二：对中级会员打9折。<br>算法三：对高级会员打8折。<br>使用策略模式来实现的结构图如下：<br><div align="center"><br><img src="https://javazhan.com/images/disign-pattern/2018-11-15/2.png" alt=""><br></div>
+
+<p>价格类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Price &#123;</span><br><span class="line">	private MeberStrategy strategy;</span><br><span class="line">	public Price(MeberStrategy strategy) &#123;</span><br><span class="line">		this.strategy = strategy;</span><br><span class="line">	&#125;</span><br><span class="line">    public double quote(double bookPrice) &#123;</span><br><span class="line">    	return strategy.calsPrice(bookPrice);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抽象折扣类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface MeberStrategy &#123;</span><br><span class="line">	double calsPrice(Double bookPrice);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>初级会员折扣类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class PrimaryMeberStrategy implements MeberStrategy</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public double calsPrice(Double bookPrice) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return bookPrice;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>中级会员折扣类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class IntermediateMeberStrategy implements MeberStrategy</span><br><span class="line">&#123;</span><br><span class="line">    @Override</span><br><span class="line">	public double calsPrice(Double bookPrice) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return bookPrice*0.9;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>高级会员折扣类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class AdvanceMeberStrategy implements MeberStrategy</span><br><span class="line">&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public double calsPrice(Double bookPrice) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return bookPrice*0.9;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class Client &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		MeberStrategy strategy = new IntermediateMeberStrategy();</span><br><span class="line">		Price price = new Price(strategy);</span><br><span class="line">		double bookPrice = price.quote(12);</span><br><span class="line">		System.out.println(&quot;图书的最终价格:&quot;+bookPrice);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>从上面的示例可以看出，策略模式仅仅封装算法，提供新的算法插入到已有系统中，以及老算法从系统中“退休”的方法，策略模式并不决定在何时使用何种算法。在什么情况下使用什么算法是由客户端决定的。</p>
+<h3 id="认识策略模式"><a href="#认识策略模式" class="headerlink" title="认识策略模式"></a>认识策略模式</h3><p><strong>策略模式的重心</strong><br>策略模式的重心不是如何实现算法，而是如何组织、调用这些算法，从而让程序结构更灵活，具有更好的维护性和扩展性。<br><strong>算法的平等性</strong><br>策略模式一个很大的特点就是各个策略算法的平等性。对于一系列具体的策略算法，大家的地位是完全一样的，正因为这个平等性，才能实现算法之间可以相互替换。所有的策略算法在实现上也是相互独立的，相互之间是没有依赖的。<br>所以可以这样描述这一系列策略算法：策略算法是相同行为的不同实现。<br><strong>运行时策略的唯一性</strong><br>运行期间，策略模式在每一个时刻只能使用一个具体的策略实现对象，虽然可以动态地在不同的策略实现中切换，但是同时只能使用一个。<br><strong>公有的行为</strong><br>经常见到的是，所有的具体策略类都有一些公有的行为。这时候，就应当把这些公有的行为放到共同的抽象策略角色Strategy类里面。当然这时候抽象策略角色必须要用Java抽象类实现，而不能使用接口。<br>这其实也是典型的将代码向继承等级结构的上方集中的标准做法。</p>
+<p><div align="center"><br><img src="https://javazhan.com/images/disign-pattern/2018-11-15/3.png" alt=""><br></div></p>
+<h3 id="策略模式的优点"><a href="#策略模式的优点" class="headerlink" title="策略模式的优点"></a>策略模式的优点</h3><ul>
+<li>策略模式提供了管理相关的算法族的办法。策略类的等级结构定义了一个算法或行为族。恰当使用继承可以把公共的代码移到父类里面，从而避免代码重复。</li>
+<li>使用策略模式可以避免使用多重条件(if-else)语句。多重条件语句不易维护，它把采取哪一种算法或采取哪一种行为的逻辑与算法或行为的逻辑混合在一起，统统列在一个多重条件语句里面，比使用继承的办法还要原始和落后。</li>
+</ul>
+<h3 id="策略模式的缺点"><a href="#策略模式的缺点" class="headerlink" title="策略模式的缺点"></a>策略模式的缺点</h3><ul>
+<li>客户端必须知道所有的策略类，并自行决定使用哪一个策略类。这就意味着客户端必须理解这些算法的区别，以便适时选择恰当的算法类。换言之，策略模式只适用于客户端知道算法或行为的情况。</li>
+<li>由于策略模式把每个具体的策略实现都单独封装成为类，如果备选的策略很多的话，那么对象的数目就会很可观。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月15日 10:08</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/15/2018-11-15-1-java-design-pattern-1/" title="java设计模式之策略模式">https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/&title=《java设计模式之策略模式》 — Java博客&pic=/images/thumbnail/6.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/&title=《java设计模式之策略模式》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java设计模式之策略模式》 — Java博客&url=https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/15/2018-11-15-1-java-design-pattern-1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3awW4iMRAEUP7/p3evWWUhVd02SaTHCQ3E4zeRbFPdj0f8+vPh9fHK5++07z+PnN/x2AsPDw9vMfVntzx1pUUmI38xAh4eHt413rNB80W5uGVJzTcJPDw8vJ/Je32zFtYevvHw8PB+Iy/ZEmbXk7/Cw8PD+zm8JIx4/f2z4DbCOJC14OHh4U2SgUceGXzv+yv1PTw8PLx1VT3ZJJJCV7sNJONEs8XDw8O7wJsVt9pYdhgiLL6Dh4eH937ePn5tl/W2sSBv6sLDw8O7wZtNvWW0zQGzbKEIJvDw8PBGvNeD7otS+3HyI/vTwzQeHh7eBd7rhT4Ht6FD24LQBhN4eHh4N3j5pNsbzPD5BlO0XuHh4eEd5bXL8azwPzsoHyt94eHh4V3jtQfofIT83Ns2HHzxz8DDw8O7wGsbm5KDcrv078OI/EHg4eHh7XltS1OxBK8Px5tQ458wAg8PD+8ar/6pX5bNZg0HqzIYHh4e3gVeEj3MymPtRtKGwnkggoeHh/ce3iaYOItpt4QoscbDw8Nb85LFPbkSdXiNWhPaR4OHh4d3j7dvQm0fUPs+33Kebgl4eHh4R3n50Mmi3C70s2avGo+Hh4d3lDdrk2pL/kWxf1R4e/opHh4e3gXevvSVl6Bm4Nd3ieaAh4eHd5nXlrIS6ibSvdg0gIeHh3eh3Wofqibj50f52aaFh4eHd5s3W+7bwv8m8mhjaDw8PLyzvE0MsZl6vvHkkcd/PsXDw8O7wNv87N/Hsu2Bfvaw8PDw8G7wZpOeNQqcDSOS5gM8PDy8e7w2w2jLY+1GMgsj8PDw8H4LL48t2kc2i5jx8PDwfhpvE+9u2HkLAh4eHt57eHnRa9Yc0B7Bk3kWGwMeHh7eUd6sselUiLBv3jrwwsPDw0t5fwGy5JKX+mvamgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java设计模式/" class="color4">java设计模式</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#策略模式的结构"><span class="post-toc-text">策略模式的结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#认识策略模式"><span class="post-toc-text">认识策略模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#策略模式的优点"><span class="post-toc-text">策略模式的优点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#策略模式的缺点"><span class="post-toc-text">策略模式的缺点</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/17/2018-11-17-1-java-design-pattern-1/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java设计模式之访问者模式
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/13/2018-11-13-1-java-initial-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">关于java的初始化( 一：成员变量的初始化 )</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 王文昊<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://javazhan.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

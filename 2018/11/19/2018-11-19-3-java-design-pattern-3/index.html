@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>java设计模式之建造者模式 | Java博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="java博客,王文昊的博客">
+  
+  <meta name="description" content="建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。  一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。 概述 意图  将一个复杂的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。  主要解决  主要解决在软件系统中，有时候面临着”一个复">
+<meta name="keywords" content="java设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java设计模式之建造者模式">
+<meta property="og:url" content="https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/index.html">
+<meta property="og:site_name" content="Java博客">
+<meta property="og:description" content="建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。  一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。 概述 意图  将一个复杂的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。  主要解决  主要解决在软件系统中，有时候面临着”一个复">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://javazhan.com/images/disign-pattern/2018-11-19/3.png">
+<meta property="og:updated_time" content="2018-11-19T09:19:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java设计模式之建造者模式">
+<meta name="twitter:description" content="建造者模式（Builder Pattern）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。  一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。 概述 意图  将一个复杂的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。  主要解决  主要解决在软件系统中，有时候面临着”一个复">
+<meta name="twitter:image" content="https://javazhan.com/images/disign-pattern/2018-11-19/3.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Java博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Java博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/WangWenHaoBoy">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5557674141">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-19-3-java-design-pattern-3" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java设计模式之建造者模式
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/后端/">后端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-19
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <blockquote>
+<p><font color="red">建造者模式（Builder Pattern）</font>使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于<font color="red">创建型模式</font>，它提供了一种创建对象的最佳方式。</p>
+</blockquote>
+<p>一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。</p>
+<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>意图</p>
+</blockquote>
+<p>将一个复杂的构建与其表示相分离，使得同样的构建过程可以创建不同的表示。</p>
+<blockquote>
+<p>主要解决</p>
+</blockquote>
+<p>主要解决在软件系统中，有时候面临着”一个复杂对象”的创建工作，其通常由各个部分的子对象用一定的算法构成；由于需求的变化，这个复杂对象的各个部分经常面临着剧烈的变化，但是将它们组合在一起的算法却相对稳定。</p>
+<blockquote>
+<p>何时使用</p>
+</blockquote>
+<p>一些基本部件不会变，而其组合经常变化的时候。</p>
+<blockquote>
+<p>如何解决</p>
+</blockquote>
+<p>将变与不变分离开。</p>
+<blockquote>
+<p>注意事项</p>
+</blockquote>
+<p>与工厂模式的区别是：建造者模式更加关注与零件装配的顺序，而工厂模式更加关注的是零件的类型。</p>
+<blockquote>
+<p>UML结构图</p>
+</blockquote>
+<p><img src="https://javazhan.com/images/disign-pattern/2018-11-19/3.png" alt=""></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>我们假设一个快餐店的商业案例，其中，一个典型的套餐可以是一个汉堡（Burger）和一杯冷饮（Cold drink）。汉堡（Burger）可以是素食汉堡（Veg Burger）或鸡肉汉堡（Chicken Burger），它们是包在纸盒中。冷饮（Drink）可以是可口可乐（coke）或百事可乐（pepsi），它们是装在瓶子中。</p>
+<p>我们将创建一个表示食物条目（比如汉堡和冷饮）的 Item 接口和实现 Item 接口的实体类，以及一个表示食物包装的 Packing 接口和实现 Packing 接口的实体类，汉堡是包在纸盒中，冷饮是装在瓶子中。</p>
+<p>然后我们创建一个 Meal 类，带有 Item 的 ArrayList 和一个通过结合 Item 来创建不同类型的 Meal 对象的 MealBuilder。BuilderPatternDemo，我们的演示类使用 MealBuilder 来创建一个 Meal。</p>
+<p>Item物品抽象类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Item &#123;</span><br><span class="line">	public abstract String getName();</span><br><span class="line">	public abstract double getPrice();</span><br><span class="line">	public abstract Package getPack();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Burger汉堡包抽象类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Burger extends Item&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>VegBurger蔬菜汉堡包类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class VegBurger extends Burger&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return &quot;VegBurger&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public double getPrice() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return 30.6;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public Package getPack() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return new Wrapper();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ChickenBurger鸡肉汉堡吧：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class ChickenBurger extends Burger &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return &quot;ChickenBurger&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public double getPrice() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return 23.3;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public Package getPack() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return new Wrapper();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Drink饮料抽象类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public abstract class Drink extends Item&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Coke可口可乐类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Coke extends Drink&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return &quot;Coke&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public double getPrice() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return 5.3;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public Package getPack() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return new Bottle();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Pepsi百事可乐类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Pepsi extends Drink&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return &quot;Pepsi&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public double getPrice() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return 3.0;</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	public Package getPack() &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		return new Bottle();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>包装接口类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface  Package &#123;</span><br><span class="line">	public abstract String getName();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>袋装类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Wrapper implements Package &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return &quot;Wrapper&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>瓶装类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public class Bottle implements Package &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public String getName() &#123;</span><br><span class="line">		return &quot;Bottle&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Meal类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">public class Meal &#123;</span><br><span class="line">	private List&lt;Item&gt; items = new ArrayList&lt;Item&gt;();</span><br><span class="line">	public void addItem(Item item) &#123;</span><br><span class="line">		items.add(item);</span><br><span class="line">	&#125;</span><br><span class="line">	public void showTotalPrice() &#123;</span><br><span class="line">		double price = 0;</span><br><span class="line">		for(Item item : items) &#123;</span><br><span class="line">			price+=item.getPrice();</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(price);</span><br><span class="line">	&#125;</span><br><span class="line">	public void showAllName() &#123;</span><br><span class="line">		for(Item item : items) &#123;</span><br><span class="line">			System.out.println(item.getName());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Meal构建类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class MealBuilder &#123;</span><br><span class="line">	public Meal BuildMealOne() &#123;</span><br><span class="line">		Meal meal = new Meal();</span><br><span class="line">		meal.addItem(new VegBurger());</span><br><span class="line">		meal.addItem(new Coke());</span><br><span class="line">		return meal;</span><br><span class="line">	&#125;</span><br><span class="line">	public Meal BuildMealTwo() &#123;</span><br><span class="line">		Meal meal = new Meal();</span><br><span class="line">		meal.addItem(new ChickenBurger());</span><br><span class="line">		meal.addItem(new Pepsi());</span><br><span class="line">		return meal;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试类：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		MealBuilder builder = new MealBuilder();</span><br><span class="line">		Meal mealone = builder.BuildMealOne();</span><br><span class="line">		mealone.showTotalPrice();</span><br><span class="line">		mealone.showAllName();</span><br><span class="line">		Meal mealtwo = builder.BuildMealTwo();</span><br><span class="line">		mealtwo.showTotalPrice();</span><br><span class="line">		mealtwo.showAllName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>输出结果为：<br>35.9<br>VegBurger<br>Coke<br>26.3<br>ChickenBurger<br>Pepsi</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>优点</p>
+</blockquote>
+<ul>
+<li>建造者独立，易扩展。</li>
+<li>便于控制细节风险。</li>
+</ul>
+<blockquote>
+<p>缺点</p>
+</blockquote>
+<ul>
+<li>产品必须有共同点，范围有限制。</li>
+<li>如内部变化复杂，会有很多的建造类。</li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月19日 17:19</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/19/2018-11-19-3-java-design-pattern-3/" title="java设计模式之建造者模式">https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/&title=《java设计模式之建造者模式》 — Java博客&pic=/images/thumbnail/9.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/&title=《java设计模式之建造者模式》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java设计模式之建造者模式》 — Java博客&url=https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/19/2018-11-19-3-java-design-pattern-3/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQZKjQAwEwPn/p70Re50FV0m014fk5PAMuJNDI0r6+YmP19/j6pvXr+PqrN//f/9bV1d++MDDw8MbLf3quF9ofs1k6cmRrxkPDw/vNC/ZoO8/t+fmZ81+Fw8PD+8beFebb7FNl4vb3FY8PDy8b+C1EUOy0edn4eHh4X0bL3/538fBm3jiYNaCh4eH11W5RQPsGz4f7O/h4eHhLbrq7TbdNsPuHzkPrA0PDw/vAG9WLicR7QzfDnhFDww8PDy8R3mzl/z2rFlYkLffLotvPDw8vMO8tvDNo9i2vJ612d4U03h4eHiP8mZZ6Czw3TS36mAXDw8P7wAv2WrzkanNY6aFJSEFHh4e3md4bRGcLHeYLi8aaW/eG/Dw8PAWvBMRQxsubKhvvsfDw8M7wMtDhHZzz8cFNnFD8et4eHh4H+TlTf0ZuI1980IfDw8P7wRvFozmbbNZmb4ZGvhHGIGHh4d3mJe3u9owoi212zCiGLrCw8PDW/ASQHKhvORNvp/dCDw8PLzP8DYPgFkI2z5g8sZY8caAh4eHt+DlC5qVyLMm1n54Cw8PD+8cb7ZBz8YF8sbVrKl2OS6Ah4eH9yhvFt3mG3c78Nre9OIW4+Hh4T3EmzWc9iNWs8CiDkfw8PDwDvDaV/1Ze2z/n/kDAw8PD+8zvNmFZsV0++CZNdKKXhkeHh7eiJfHBPvQ9qlRrWEkgYeHh/cor21Q5UtM/roftypyFDw8PLwF71Uem3BhE3kMG3J4eHh4B3htPNGOOrWbfnsL2gkBPDw8vKd4bYF7IrrNw9z6t/Dw8PCO8dqmVNvs319tFhbj4eHhfQ/vqfJ3X6y/uTV4eHh4/5XXBrKzxtUs5MXDw8P7PG82IJUjZw2tWcyBh4eHd5o328TbZv89adZse4yNh4eHl67hD6KOfYKrxWVtAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java设计模式/" class="color4">java设计模式</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概述"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现"><span class="post-toc-text">实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-text">总结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/19/2018-11-19-1-java-design-pattern-1/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          java设计模式之装饰者模式
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/19/2018-11-19-2-java-design-pattern-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">java设计模式之观察者模式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 王文昊<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://javazhan.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

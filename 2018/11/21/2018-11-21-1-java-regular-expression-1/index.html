@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>java正则表达式之前瞻后顾 | Java博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="java博客,王文昊的博客">
+  
+  <meta name="description" content="概述 正则表达式的先行断言和后行断言一共有4种形式   (?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)   (?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)   (?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive">
+<meta name="keywords" content="java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java正则表达式之前瞻后顾">
+<meta property="og:url" content="https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/index.html">
+<meta property="og:site_name" content="Java博客">
+<meta property="og:description" content="概述 正则表达式的先行断言和后行断言一共有4种形式   (?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)   (?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)   (?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-11-21T07:22:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java正则表达式之前瞻后顾">
+<meta name="twitter:description" content="概述 正则表达式的先行断言和后行断言一共有4种形式   (?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)   (?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)   (?&amp;lt;=pattern) 零宽正向后行断言(zero-width positive">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">Java博客</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a href="/">
+                        <i class="fa fa-home"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.jpg" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        Java博客
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Github" target="_blank" href="//github.com/WangWenHaoBoy">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/u/5557674141">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/huangminhow">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-2018-11-21-1-java-regular-expression-1" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      java正则表达式之前瞻后顾
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/后端/">后端</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-11-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>正则表达式的先行断言和后行断言一共有4种形式</p>
+</blockquote>
+<ul>
+<li>(?=pattern) 零宽正向先行断言(zero-width positive lookahead assertion)</li>
+</ul>
+<ul>
+<li>(?!pattern) 零宽负向先行断言(zero-width negative lookahead assertion)</li>
+</ul>
+<ul>
+<li>(?&lt;=pattern) 零宽正向后行断言(zero-width positive lookbehind assertion)</li>
+</ul>
+<ul>
+<li>(?&lt;!pattern) 零宽负向后行断言(zero-width negative lookbehind assertion)</li>
+</ul>
+<p>这里面的pattern是一个正则表达式。<br>如同^代表开头，$代表结尾，\b代表单词边界一样，先行断言和后行断言也有类似的作用，它们只匹配某些位置，在匹配过程中，不占用字符，所以被称为“零宽”。所谓位置，是指字符串中(每行)第一个字符的左边、最后一个字符的右边以及相邻字符的中间（假设文字方向是头左尾右）。</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><blockquote>
+<p>下面分别举例来说明这4种断言的含义</p>
+</blockquote>
+<ul>
+<li><p>(?=pattern) 正向先行断言<br>代表字符串中的一个位置，紧接该位置之后的字符序列能够匹配pattern。<br>例如对”a regular expression”这个字符串，要想匹配regular中的re，但不能匹配expression中的re，可以用”re(?=gular)”，该表达式限定了re右边的位置，这个位置之后是gular，但并不消耗gular这些字符，将表达式改为”re(?=gular).”，将会匹配reg，元字符.匹配了g，括号这一砣匹配了e和g之间的位置。</p>
+</li>
+<li><p>(?!pattern) 负向先行断言<br>代表字符串中的一个位置，紧接该位置之后的字符序列不能匹配pattern。<br>例如对”regex represents regular expression”这个字符串，要想匹配除regex和regular之外的re，可以用”re(?!g)”，该表达式限定了re右边的位置，这个位置后面不是字符g。负向和正向的区别，就在于该位置之后的字符能否匹配括号中的表达式。</p>
+</li>
+<li><p>(?&lt;=pattern) 正向后行断言<br>代表字符串中的一个位置，紧接该位置之前的字符序列能够匹配pattern。<br>例如对”regex represents regular expression”这个字符串，有4个单词，要想匹配单词内部的re，但不匹配单词开头的re，可以用”(?&lt;=\w)re”，单词内部的re，在re前面应该是一个单词字符。之所以叫后行断言，是因为正则表达式引擎在匹配字符串和表达式时，是从前向后逐个扫描字符串中的字符，并判断是否与表达式符合，当在表达式中遇到该断言时，正则表达式引擎需要往字符串前端检测已扫描过的字符，相对于扫描方向是向后的。</p>
+</li>
+<li><p>(?&lt;!pattern) 负向后行断言<br>代表字符串中的一个位置，紧接该位置之前的字符序列不能匹配pattern。<br>例如对”regex represents regular expression”这个字符串，要想匹配单词开头的re，可以用”(?&lt;!\w)re”。单词开头的re，在本例中，也就是指不在单词内部的re，即re前面不是单词字符。当然也可以用”\bre”来匹配。</p>
+</li>
+</ul>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p>上述4种断言，括号里的pattern本身是一个正则表达式。但对2种后行断言有所限制，在Perl和Python中，这个表达式必须是定长(fixed length)的，即不能使用<em>、+、?等元字符，如(?&lt;=abc)没有问题，但(?&lt;=a</em>bc)是不被支持的，特别是当表达式中含有|连接的分支时，各个分支的长度必须相同。之所以不支持变长表达式，是因为当引擎检查后行断言时，无法确定要回溯多少步。Java支持?、{m}、{n,m}等符号，但同样不支持*、+字符。JavaScript干脆不支持后行断言，不过一般来说，这不是太大的问题。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年11月21日 15:22</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/21/2018-11-21-1-java-regular-expression-1/" title="java正则表达式之前瞻后顾">https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/</a></p>
+        <footer>
+            <a href="https://javazhan.com">
+                <img src="/images/logo.jpg" alt="王文昊">
+                王文昊
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" width="100%" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/&title=《java正则表达式之前瞻后顾》 — Java博客&pic=/images/thumbnail/0.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/&title=《java正则表达式之前瞻后顾》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java正则表达式之前瞻后顾》 — Java博客&url=https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/&via=https://javazhan.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://javazhan.com/2018/11/21/2018-11-21-1-java-regular-expression-1/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3aQZLCMAwEwPz/0+x1t6jASLJYDu0TRYKT9sE2I19X3B6/2u9vJr+aXD3c8PDw8Aav/tzuHvbcw903ydXX/Se/uu0BDw8Pb42XdJd0HT2yRU0WCTw8PLzv5L1GJj1Xt9T59hoPDw/vO3nJpJ/ECq8HJcHj4eHh/S8vn4g3Ns2TITuWteDh4eF1koErf8X//bxS38PDw8MbV9VPBQ3zIwLN4BgPDw9vgTc5PpXHspNQI3/67Z14eHh4a7zq3/u8NJX3Xy2zRYsWHh4e3gIvmYJ70W1exKoOZf5bPDw8vA1eQurd2Tue9Rg3PDw8vM/zJlvbXvm/epSqUAzDw8PDW+AlpPk2t7rHz/ssLA94eHh4R3kbc2w1bqguGL0iGR4eHt4pXl7U771iPmRVXvQsPDw8vKO8vKg/L19Nwot8aPDw8PD2eJO4oXpQoDfFj2JfPDw8vDVetaRUzTOqBwXyoSn/S8DDw8Mb8+Yb6973k+HIlyU8PDy8DV71kFP14Olklu6B//SDh4eH9xFeL5xN2ql1LNmC4+Hh4e3xToUI1V/l5bHeYnM4I8HDw8O7qa1PilunCmnJ/YXIAw8PD2+Nl5fte2X+/J5qQPxmKcLDw8Nb4E02wVex9UKEahgRlcHw8PDwjvKSElQeH1Sn/rwAVj4TgYeHh7fMy+OAfBtdDSN6Jbc3W2o8PDy8BV7+mEm40Lu/Ohx4eHh4G7z5walkMciXkGbccHcVDw8Pb4E3CWHzowOT4ci38pOIGQ8PD6/K6wUQCW8ey1YXhvLGGg8PD2/A64UOp156fijhzcKAh4eH9wW86kY8X2Cqy8CbGAIPDw/va3j5gYDXkWsvoi3EtXh4eHhrvHlBqzxlD8pX5YUBDw8P7yiv+oc/DxqqM3b16nWq4eHh4aW8H/piAydEOOFJAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java基础/" class="color2">java基础</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#概述"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#举例"><span class="post-toc-text">举例</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/11/21/2018-11-28-2-java-springboot-mybatis-1/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          springboot系列之springboot整合mybatis
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/11/21/2018-11-28-1-java-springboot-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">springboot系列之springboot的创建</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'WangWenHaoBoy',
+            repo: 'WangWenHaoBoy.github.io',
+            oauth: {
+                client_id: '5119fa60fb390e178766',
+                client_secret: '975754e1e41f63926da3d5301e1cde3a25df6bdc',
+            },
+        })
+        gitment.render('comments')
+    </script>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 王文昊<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://javazhan.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  <script src="/js/animate.js"></script>
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Hexo博客搭建(一：hexo环境搭建) | Java博客</title>
+  <title>Hexo博客搭建之HEXO环境安装 | Java博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="java博客,王文昊的博客">
@@ -11,7 +11,7 @@
   <meta name="description" content="1.安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。  下载地址 安装步骤：双击下载好的exe文件，一路next就好啦 安装好后，打开gitbash，查看版本：用命令 git version2.安装NodeJsHexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建(一：hexo环境搭建)">
+<meta property="og:title" content="Hexo博客搭建之HEXO环境安装">
 <meta property="og:url" content="https://javazhan.com/2018/11/12/2018-11-12-1-hexo/index.html">
 <meta property="og:site_name" content="Java博客">
 <meta property="og:description" content="1.安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。  下载地址 安装步骤：双击下载好的exe文件，一路next就好啦 安装好后，打开gitbash，查看版本：用命令 git version2.安装NodeJsHexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所">
@@ -20,9 +20,13 @@
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/1.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/2.png">
 <meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/3.png">
-<meta property="og:updated_time" content="2018-11-12T10:56:20.406Z">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/4.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/5.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/6.png">
+<meta property="og:image" content="https://javazhan.com/images/hexo/2018-11-12/6.png">
+<meta property="og:updated_time" content="2018-11-12T09:29:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建(一：hexo环境搭建)">
+<meta name="twitter:title" content="Hexo博客搭建之HEXO环境安装">
 <meta name="twitter:description" content="1.安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。  下载地址 安装步骤：双击下载好的exe文件，一路next就好啦 安装好后，打开gitbash，查看版本：用命令 git version2.安装NodeJsHexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所">
 <meta name="twitter:image" content="https://javazhan.com/images/hexo/2018-11-12/0.png">
   
@@ -119,7 +123,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      Hexo博客搭建(一：hexo环境搭建)
+      Hexo博客搭建之HEXO环境安装
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -170,13 +174,18 @@
 <li>themes：主题</li>
 <li>_config.yml：整个博客的配置</li>
 <li>db.json：source解析所得到的</li>
-<li>package.json：项目所需模块项目的配置信息</li>
+<li>package.json：项目所需模块项目的配置信息<h3 id="4-创建github-Reponsitory"><a href="#4-创建github-Reponsitory" class="headerlink" title="4.创建github Reponsitory"></a>4.创建github Reponsitory</h3></li>
 </ul>
+<ol>
+<li>首先,创建一个reponsitory如下图:<br><img src="https://javazhan.com/images/hexo/2018-11-12/4.png" alt=""><br>注意下图中的Owner其实就是账户名WangWenHaoBo,Repository name中一定要符合 账户名.github.io，否则无效,另外还要记住勾选Initialize this repository with a README<br><img src="https://javazhan.com/images/hexo/2018-11-12/5.png" alt=""><h3 id="5-配置一下gitbash和github的通信协议"><a href="#5-配置一下gitbash和github的通信协议" class="headerlink" title="5.配置一下gitbash和github的通信协议"></a>5.配置一下gitbash和github的通信协议</h3></li>
+<li>首先打开刚刚安装好的gitbash,界面如下:<br><img src="https://javazhan.com/images/hexo/2018-11-12/6.png" alt=""></li>
+<li>配置gitbash和github的通信协议<br>先输入ssh-keygen –t rsa –C “邮箱地址” 然后一直按回车回车回车回车。。。。箭头指向的邮箱填写我当时填的是和github上写的邮箱一致。<br><img src="https://javazhan.com/images/hexo/2018-11-12/6.png" alt=""></li>
+</ol>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年11月12日 18:56</p>
-        <p>原始链接： <a class="post-url" href="/2018/11/12/2018-11-12-1-hexo/" title="Hexo博客搭建(一：hexo环境搭建)">https://javazhan.com/2018/11/12/2018-11-12-1-hexo/</a></p>
+        <p>最后更新： 2018年11月12日 17:29</p>
+        <p>原始链接： <a class="post-url" href="/2018/11/12/2018-11-12-1-hexo/" title="Hexo博客搭建之HEXO环境安装">https://javazhan.com/2018/11/12/2018-11-12-1-hexo/</a></p>
         <footer>
             <a href="https://javazhan.com">
                 <img src="/images/logo.jpg" alt="王文昊">
@@ -233,7 +242,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/12/2018-11-12-1-hexo/&title=《Hexo博客搭建(一：hexo环境搭建)》 — Java博客&pic=/images/thumbnail/0.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://javazhan.com/2018/11/12/2018-11-12-1-hexo/&title=《Hexo博客搭建之HEXO环境安装》 — Java博客&pic=/images/thumbnail/0.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -243,7 +252,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/12/2018-11-12-1-hexo/&title=《Hexo博客搭建(一：hexo环境搭建)》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://javazhan.com/2018/11/12/2018-11-12-1-hexo/&title=《Hexo博客搭建之HEXO环境安装》 — Java博客&source=我的个人站，主要涉及前后端端知识共享、实践教程、前沿技术共同学习等方面" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -253,7 +262,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo博客搭建(一：hexo环境搭建)》 — Java博客&url=https://javazhan.com/2018/11/12/2018-11-12-1-hexo/&via=https://javazhan.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo博客搭建之HEXO环境安装》 — Java博客&url=https://javazhan.com/2018/11/12/2018-11-12-1-hexo/&via=https://javazhan.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -293,26 +302,26 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装Git-Bash"><span class="post-toc-text">1.安装Git Bash</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装NodeJs"><span class="post-toc-text">2.安装NodeJs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装hexo"><span class="post-toc-text">3.安装hexo</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-安装Git-Bash"><span class="post-toc-text">1.安装Git Bash</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-安装NodeJs"><span class="post-toc-text">2.安装NodeJs</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-安装hexo"><span class="post-toc-text">3.安装hexo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-创建github-Reponsitory"><span class="post-toc-text">4.创建github Reponsitory</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-配置一下gitbash和github的通信协议"><span class="post-toc-text">5.配置一下gitbash和github的通信协议</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/11/13/2018-11-13-4-java-enum-1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/13/2018-11-14-1-java-design-pattern-1/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          初探Java枚举类型
+          java设计模式之策略模式
         
       </span>
     </a>
   
   
-    <a href="/2018/11/12/2018-11-12-2-hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Hexo博客搭建(二：Windows下如何使用gitbash管理github)</span>
+    <a href="/2018/11/12/2018-11-12-3-hexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hexo博客搭建(三：在github上部署hexo主题)</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -392,7 +401,7 @@
             <a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/后端/">后端</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a>
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -425,7 +434,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 20px;">java基础</a>
+            <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/java基础/" style="font-size: 16.67px;">java基础</a> <a href="/tags/java设计模式/" style="font-size: 20px;">java设计模式</a> <a href="/tags/springboot整合/" style="font-size: 10px;">springboot整合</a>
         </div>
     </div>
 </div>
